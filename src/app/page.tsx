@@ -7,6 +7,7 @@ import { Hero } from "@/components/Hero";
 import { Innovation } from "@/components/Innovation";
 import { Pillars } from "@/components/Pillars";
 import { Projects } from "@/components/Projects";
+import { RealResearchPlatform } from "@/components/RealResearchPlatform";
 import { ResearchPlatform } from "@/components/ResearchPlatform";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <About />
         <Pillars />
         <ResearchPlatform />
+        <RealResearchPlatform />
         <Architecture />
         <Innovation />
         <Projects />

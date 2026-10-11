@@ -23,6 +23,15 @@ export function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
@@ -35,7 +44,7 @@ export function Header() {
         <a href="#top" className="text-cream" aria-label="Toba Smart Farming home">
           <Logo />
         </a>
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-5 xl:flex" aria-label="Primary">
           {nav.map((item) => (
             <a
               key={item.href}
@@ -48,15 +57,15 @@ export function Header() {
         </nav>
         <a
           href="#contact"
-          className="hidden rounded-full border border-teal/40 bg-teal/10 px-4 py-2 text-[13px] text-teal-bright transition hover:border-teal hover:bg-teal/20 lg:inline-flex"
+          className="hidden rounded-full border border-teal/40 bg-teal/10 px-4 py-2 text-[13px] text-teal-bright transition hover:border-teal hover:bg-teal/20 xl:inline-flex"
         >
           Start a conversation
         </a>
         <button
           type="button"
-          className="inline-flex rounded-md p-2 text-cream lg:hidden"
+          className="inline-flex rounded-md p-2 text-cream xl:hidden"
           aria-expanded={open}
-          aria-controls="mobile-nav"
+          aria-controls={open ? "mobile-nav" : undefined}
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
         >
@@ -66,7 +75,7 @@ export function Header() {
       {open ? (
         <nav
           id="mobile-nav"
-          className="border-t border-white/10 bg-navy px-5 py-6 lg:hidden"
+          className="max-h-[calc(100svh-4.5rem)] overflow-y-auto border-t border-white/10 bg-navy px-5 py-6 xl:hidden"
           aria-label="Mobile"
         >
           <div className="flex flex-col gap-4">
@@ -74,7 +83,7 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-lg text-cream/90"
+                className="py-2 text-lg text-cream/90"
                 onClick={() => setOpen(false)}
               >
                 {item.label}

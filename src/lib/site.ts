@@ -4,7 +4,7 @@ export const site = {
   url: "https://www.tobasmartfarming.com",
   tagline: "Engineering the Future of Intelligent Farming",
   description:
-    "Toba Smart Farming is an applied research and technology initiative focused on intelligent agriculture, indoor vertical farming, IoT sensor networks, artificial intelligence, environmental monitoring, and intelligent climate control.",
+    "Toba Smart Farming advances intelligent agriculture through integrated sensing, data-driven analysis, and AI-based environmental control. Our research bridges experimental indoor farming systems with practical engineering solutions for sustainable food production.",
   locale: "en_US",
 } as const;
 
@@ -12,6 +12,7 @@ export const nav = [
   { href: "#about", label: "About" },
   { href: "#pillars", label: "Technology" },
   { href: "#platform", label: "Research Platform" },
+  { href: "#facility", label: "Facility" },
   { href: "#architecture", label: "Architecture" },
   { href: "#innovation", label: "Innovation" },
   { href: "#projects", label: "Projects" },

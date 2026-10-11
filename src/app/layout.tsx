@@ -32,6 +32,8 @@ export const metadata: Metadata = {
     "artificial intelligence",
     "environmental monitoring",
     "climate control",
+    "spatial microclimate",
+    "reinforcement learning",
     "precision agriculture",
   ],
   authors: [{ name: site.name, url: site.url }],

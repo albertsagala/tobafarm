@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --forest: #143528;
+  --forest-deep: #0c241c;
+  --forest-mid: #1e4a38;
+  --navy: #0b1524;
+  --navy-mid: #132033;
+  --cream: #f4f0e8;
+  --cream-soft: #fbf8f3;
+  --teal: #3d9b8f;
+  --teal-bright: #5eb8ac;
+  --ink: #1a2330;
+  --muted: #5c6774;
+  --line: rgba(20, 53, 40, 0.12);
+}
+
+@theme inline {
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-forest-mid: var(--forest-mid);
+  --color-navy: var(--navy);
+  --color-navy-mid: var(--navy-mid);
+  --color-cream: var(--cream);
+  --color-cream-soft: var(--cream-soft);
+  --color-teal: var(--teal);
+  --color-teal-bright: var(--teal-bright);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream-soft);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--teal) 35%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

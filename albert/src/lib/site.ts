@@ -49,9 +49,20 @@ export const profiles = [
   },
 ] as const;
 
+export const sinta = {
+  profile: "https://sinta.kemdiktisaintek.go.id/authors/profile/6034587",
+  researches:
+    "https://sinta.kemdiktisaintek.go.id/authors/profile/6034587/?view=researches",
+  services:
+    "https://sinta.kemdiktisaintek.go.id/authors/profile/6034587/?view=services",
+} as const;
+
 export const nav = [
   { href: "#biography", label: "Biography" },
   { href: "#research", label: "Research" },
+  { href: "#publications", label: "Publications" },
+  { href: "#projects", label: "Projects" },
+  { href: "#service", label: "Service" },
   { href: "#profiles", label: "Profiles" },
   { href: "#platform", label: "Research platform" },
 ] as const;

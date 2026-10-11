@@ -29,7 +29,7 @@ export function Header() {
         <a href="#top" className="text-sm font-medium tracking-wide text-cream">
           {person.name}
         </a>
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-5 lg:flex" aria-label="Primary">
           {nav.map((item) => (
             <a
               key={item.href}
@@ -42,7 +42,7 @@ export function Header() {
         </nav>
         <button
           type="button"
-          className="inline-flex rounded-md p-2 text-cream md:hidden"
+          className="inline-flex rounded-md p-2 text-cream lg:hidden"
           aria-expanded={open}
           aria-controls={open ? "mobile-nav" : undefined}
           aria-label={open ? "Close menu" : "Open menu"}
@@ -54,7 +54,7 @@ export function Header() {
       {open ? (
         <nav
           id="mobile-nav"
-          className="border-t border-white/10 bg-navy px-5 py-4 md:hidden"
+          className="max-h-[70vh] overflow-y-auto border-t border-white/10 bg-navy px-5 py-4 lg:hidden"
           aria-label="Mobile"
         >
           <div className="flex flex-col">

@@ -1,6 +1,11 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { person, profiles, researchAreas } from "@/lib/site";
+import {
+  communityServices,
+  publicationGroups,
+  researchProjects,
+} from "@/lib/records";
+import { person, profiles, researchAreas, sinta } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -107,7 +112,166 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="profiles" className="scroll-mt-24 bg-forest-deep py-20 text-cream md:py-28">
+        <section id="publications" className="scroll-mt-24 bg-cream-soft py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-5 md:px-8">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-teal">
+              Publications
+            </p>
+            <h2 className="font-display mt-3 max-w-3xl text-4xl text-forest-deep md:text-5xl">
+              Published papers
+            </h2>
+            <p className="mt-5 max-w-2xl leading-relaxed text-muted">
+              Grouped as international journals, international conferences, and
+              national journals. Each title links to the publisher record.
+              Citation counts stay on the{" "}
+              <a
+                href={sinta.profile}
+                className="text-forest underline decoration-teal/50 underline-offset-4"
+              >
+                SINTA profile
+              </a>
+              .
+            </p>
+            <div className="mt-14 space-y-14">
+              {publicationGroups.map((group) => (
+                <div key={group.id} id={group.id} className="scroll-mt-28">
+                  <h3 className="font-display text-3xl text-forest-deep">
+                    {group.label}
+                  </h3>
+                  <ol className="mt-6 divide-y divide-[var(--line)] border-y border-[var(--line)]">
+                    {group.items.map((paper) => (
+                      <li key={paper.href} className="py-5">
+                        <div className="grid gap-2 sm:grid-cols-[4.5rem_1fr] sm:gap-6">
+                          <p className="text-sm font-medium tracking-wide text-teal">
+                            {paper.year}
+                          </p>
+                          <div>
+                            <a
+                              href={paper.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-lg leading-snug text-forest-deep underline decoration-teal/40 underline-offset-4 transition hover:decoration-teal"
+                            >
+                              {paper.title}
+                            </a>
+                            <p className="mt-1 text-sm leading-relaxed text-muted">
+                              {paper.venue}
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" className="scroll-mt-24 bg-cream py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-5 md:px-8">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-teal">
+              Research projects
+            </p>
+            <h2 className="font-display mt-3 max-w-3xl text-4xl text-forest-deep md:text-5xl">
+              Funded research
+            </h2>
+            <p className="mt-5 max-w-2xl leading-relaxed text-muted">
+              Years are the implementation years on the public{" "}
+              <a
+                href={sinta.researches}
+                className="text-forest underline decoration-teal/50 underline-offset-4"
+              >
+                SINTA research record
+              </a>
+              . The vessel-tracking project is listed once for its 2021–2023
+              awards.
+            </p>
+            <ol className="mt-10 divide-y divide-[var(--line)] border-y border-[var(--line)]">
+              {researchProjects.map((item) => (
+                <li key={`${item.year}-${item.title}`} className="py-5">
+                  <div className="grid gap-2 sm:grid-cols-[6.5rem_1fr] sm:gap-6">
+                    <p className="text-sm font-medium tracking-wide text-teal">
+                      {item.year}
+                    </p>
+                    <div>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg leading-snug text-forest-deep underline decoration-teal/40 underline-offset-4 transition hover:decoration-teal"
+                        >
+                          {item.title}
+                        </a>
+                      ) : (
+                        <p className="text-lg leading-snug text-forest-deep">
+                          {item.title}
+                        </p>
+                      )}
+                      <p className="mt-1 text-sm text-muted">
+                        {item.role} · {item.scheme}
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section id="service" className="scroll-mt-24 bg-forest-deep py-20 text-cream md:py-28">
+          <div className="mx-auto max-w-6xl px-5 md:px-8">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-teal-bright">
+              Pengabdian kepada masyarakat
+            </p>
+            <h2 className="font-display mt-3 max-w-3xl text-4xl md:text-5xl">
+              Community service
+            </h2>
+            <p className="mt-5 max-w-2xl leading-relaxed text-cream/80">
+              Activities and years follow the public{" "}
+              <a
+                href={sinta.services}
+                className="text-teal-bright underline decoration-teal/50 underline-offset-4"
+              >
+                SINTA community-service record
+              </a>
+              .
+            </p>
+            <ol className="mt-10 divide-y divide-white/10 border-y border-white/10">
+              {communityServices.map((item) => (
+                <li key={`${item.year}-${item.title}`} className="py-5">
+                  <div className="grid gap-2 sm:grid-cols-[4.5rem_1fr] sm:gap-6">
+                    <p className="text-sm font-medium tracking-wide text-teal-bright">
+                      {item.year}
+                    </p>
+                    <div>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg leading-snug text-cream underline decoration-teal/40 underline-offset-4 transition hover:decoration-teal-bright"
+                        >
+                          {item.title}
+                        </a>
+                      ) : (
+                        <p className="text-lg leading-snug text-cream">
+                          {item.title}
+                        </p>
+                      )}
+                      <p className="mt-1 text-sm text-cream/70">
+                        {item.role} · {item.scheme}
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section id="profiles" className="scroll-mt-24 bg-navy py-20 text-cream md:py-28">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <p className="text-xs font-medium uppercase tracking-[0.28em] text-teal-bright">
               Profiles

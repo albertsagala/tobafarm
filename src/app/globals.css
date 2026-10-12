@@ -10,6 +10,8 @@
   --cream-soft: #fbf8f3;
   --teal: #3d9b8f;
   --teal-bright: #5eb8ac;
+  --teal-deep: #2b7268;
+  --amber: #8a5a12;
   --ink: #1a2330;
   --muted: #5c6774;
   --line: rgba(20, 53, 40, 0.12);
@@ -25,6 +27,8 @@
   --color-cream-soft: var(--cream-soft);
   --color-teal: var(--teal);
   --color-teal-bright: var(--teal-bright);
+  --color-teal-deep: var(--teal-deep);
+  --color-amber: var(--amber);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --font-display: var(--font-display);
@@ -99,5 +103,13 @@ body {
   }
   .animate-rise {
     animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

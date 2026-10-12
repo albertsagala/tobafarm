@@ -2,29 +2,22 @@ export const site = {
   name: "Toba Smart Farming",
   shortName: "Toba",
   url: "https://www.tobasmartfarming.com",
-  tagline: "Engineering the Future of Intelligent Farming",
+  tagline: "Riset pertanian dalam ruang berbasis kontainer",
   description:
-    "Toba Smart Farming advances intelligent agriculture through integrated sensing, data-driven analysis, and AI-based environmental control. Our research bridges experimental indoor farming systems with practical engineering solutions for sustainable food production.",
-  locale: "en_US",
+    "Toba Smart Farming meneliti pertanian dalam ruang di kontainer 10 kaki: pemantauan dengan jaringan sensor nirkabel, pemetaan mikroklimat spasial, dan pengujian kontrol iklim berbasis AI.",
+  locale: "id_ID",
+  language: "id",
+  email: "albertsagala333@gmail.com",
 } as const;
 
 export const nav = [
-  { href: "#about", label: "About" },
-  { href: "#pillars", label: "Technology" },
-  { href: "#platform", label: "Research Platform" },
-  { href: "#facility", label: "Facility" },
-  { href: "#architecture", label: "Architecture" },
-  { href: "#innovation", label: "Innovation" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Collaborate" },
+  { href: "#about", label: "Tentang" },
+  { href: "#facility", label: "Fasilitas" },
+  { href: "#projects", label: "Riset & Proyek" },
+  { href: "#team", label: "Tim" },
+  { href: "#contact", label: "Kontak" },
 ] as const;
 
-export const placeholders = {
-  email: "Email address — verification pending",
-  phone: "Phone number — verification pending",
-  address: "Facility address — verification pending",
-  region:
-    "Geographic focus: Lake Toba region, North Sumatra, Indonesia (facility details to be confirmed)",
-  affiliations: "Institutional affiliations — verification pending",
-  publications: "Publication list — not yet published on this site",
-} as const;
+export function isValidEmail(value: string | undefined | null): value is string {
+  return typeof value === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+}

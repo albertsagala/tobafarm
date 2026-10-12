@@ -1,4 +1,5 @@
-import { site } from "@/lib/site";
+import { researchLead } from "@/lib/content";
+import { isValidEmail, site } from "@/lib/site";
 
 export function JsonLd() {
   const data = {
@@ -7,15 +8,22 @@ export function JsonLd() {
     name: site.name,
     url: site.url,
     description: site.description,
+    ...(isValidEmail(site.email) ? { email: site.email } : {}),
     areaServed: "Indonesia",
     knowsAbout: [
-      "Intelligent agriculture",
       "Indoor vertical farming",
-      "IoT sensor networks",
-      "Artificial intelligence",
-      "Environmental monitoring",
-      "Intelligent climate control",
+      "Container farming",
+      "Wireless sensor networks",
+      "Spatial microclimate monitoring",
+      "Reinforcement learning for climate control",
+      "Hydroponics",
     ],
+    member: {
+      "@type": "Person",
+      name: researchLead.name,
+      roleName: researchLead.role,
+      sameAs: researchLead.profiles.map((profile) => profile.href),
+    },
   };
 
   return (

@@ -1,28 +1,25 @@
 import { Logo } from "@/components/Logo";
-import { nav, placeholders, site } from "@/lib/site";
+import { researchLead } from "@/lib/content";
+import { isValidEmail, nav, site } from "@/lib/site";
 
 export function Footer() {
+  const email = isValidEmail(site.email) ? site.email : null;
+
   return (
     <footer className="border-t border-white/10 bg-navy text-cream">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-4 md:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-4 md:px-8">
         <div className="md:col-span-2">
           <Logo />
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-cream/65">
+          <p className="mt-5 max-w-md text-sm leading-relaxed text-cream/80">
             {site.description}
-          </p>
-          <p className="mt-4 text-xs text-cream/40">
-            Public materials are limited to verified statements. Contact and
-            affiliation fields remain placeholders until confirmed.
           </p>
         </div>
         <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-teal-bright">
-            Explore
-          </p>
-          <ul className="mt-4 space-y-2 text-sm text-cream/75">
+          <p className="text-xs uppercase tracking-[0.22em] text-teal-bright">Navigasi</p>
+          <ul className="mt-4 space-y-2 text-sm text-cream/85">
             {nav.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="transition hover:text-cream">
+                <a href={item.href} className="transition hover:text-teal-bright">
                   {item.label}
                 </a>
               </li>
@@ -30,22 +27,29 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-teal-bright">
-            Contact
-          </p>
-          <ul className="mt-4 space-y-2 text-sm text-cream/65">
-            <li>{placeholders.email}</li>
-            <li>{placeholders.phone}</li>
-            <li>{placeholders.address}</li>
+          <p className="text-xs uppercase tracking-[0.22em] text-teal-bright">Kontak</p>
+          <ul className="mt-4 space-y-2 text-sm text-cream/85">
+            {email ? (
+              <li>
+                <a
+                  href={`mailto:${email}`}
+                  className="[overflow-wrap:anywhere] transition hover:text-teal-bright"
+                >
+                  {email}
+                </a>
+              </li>
+            ) : null}
+            <li>
+              {researchLead.role}: {researchLead.name}
+            </li>
           </ul>
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 text-xs text-cream/45 md:flex-row md:items-center md:justify-between md:px-8">
+        <div className="mx-auto max-w-7xl px-5 py-6 text-xs text-cream/70 md:px-8">
           <p>
-            © {new Date().getFullYear()} {site.name}. All rights reserved.
+            © {new Date().getFullYear()} {site.name}
           </p>
-          <p>Designed for static deployment at {site.url.replace("https://", "")}</p>
         </div>
       </div>
     </footer>

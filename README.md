@@ -28,6 +28,19 @@ npm run build
 
 The static site is written to `out/`. That directory is suitable for Cloudflare Pages.
 
-## Notes
+## Content
 
-Contact details, affiliations, and publications are marked as placeholders until they are verified.
+Public content lives in `src/lib/content.ts` (facility, case studies, publications, team) and `src/lib/site.ts` (name, navigation, contact email).
+
+- Every fact must link to a public record in `sources`. Do not add placeholder text; leave optional fields unset and the page hides them.
+- Component status is `operational`, `experimental`, or `development`, based on the latest public record.
+- Ongoing manuscripts go in `publications.manuscripts`; the block stays hidden while the list is empty.
+- The contact form only renders when `site.email` is a valid address.
+
+## Facility photographs
+
+Only photographs taken at the facility. No stock or generated images.
+
+1. Export at most 1600 px on the long edge, JPEG or WebP at about quality 80.
+2. Save under `public/images/facility/`.
+3. Add an entry to `facility.photos` with `src`, the real `width` and `height`, `alt`, and `caption`. Photos are shown uncropped.

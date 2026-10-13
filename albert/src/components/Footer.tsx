@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { nav, person } from "@/lib/site";
 
 export function Footer() {
@@ -14,14 +15,14 @@ export function Footer() {
         </div>
         <div>
           <p className="text-xs uppercase tracking-[0.22em] text-teal-bright">
-            On this page
+            Sections
           </p>
           <ul className="mt-4 space-y-2 text-sm text-cream/80">
             {nav.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="transition hover:text-cream">
+                <Link href={item.href} className="transition hover:text-cream">
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

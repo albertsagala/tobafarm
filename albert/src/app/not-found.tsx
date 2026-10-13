@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { person } from "@/lib/site";
 
 export default function NotFound() {
@@ -6,9 +7,9 @@ export default function NotFound() {
       <p className="text-xs uppercase tracking-[0.28em] text-teal-bright">404</p>
       <h1 className="font-display mt-4 text-5xl">{person.name}</h1>
       <p className="mt-4 max-w-md text-cream/75">This page is not on the site.</p>
-      <a href="/" className="mt-8 text-sm text-teal-bright">
+      <Link href="/" className="mt-8 text-sm text-teal-bright">
         Return to the homepage
-      </a>
+      </Link>
     </main>
   );
 }

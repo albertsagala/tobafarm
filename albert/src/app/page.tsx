@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import {
@@ -6,6 +7,11 @@ import {
   researchProjects,
 } from "@/lib/records";
 import { person, profiles, researchAreas, sinta } from "@/lib/site";
+import {
+  publicProjects,
+  supervisionCopy,
+  supervisionStats,
+} from "@/lib/supervision";
 import { courses, readings, type TeachingFile } from "@/lib/teaching";
 
 function MaterialGroup({
@@ -192,7 +198,75 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="publications" className="scroll-mt-24 bg-cream py-20 md:py-28">
+        <section id="supervision" className="scroll-mt-24 bg-cream py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-5 md:px-8">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-teal">
+              {supervisionCopy.eyebrow}
+            </p>
+            <h2 className="font-display mt-3 max-w-3xl text-4xl text-forest-deep md:text-5xl">
+              {supervisionCopy.title}
+            </h2>
+            <p className="mt-5 max-w-2xl leading-relaxed text-muted">
+              {supervisionCopy.intro}
+            </p>
+            {supervisionStats.projects > 0 ? (
+              <>
+                <dl className="mt-10 flex flex-wrap gap-x-12 gap-y-4">
+                  <div>
+                    <dt className="text-sm text-muted">Verified students</dt>
+                    <dd className="font-display text-5xl text-forest-deep">
+                      {supervisionStats.students}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-sm text-muted">Verified projects</dt>
+                    <dd className="font-display text-5xl text-forest-deep">
+                      {supervisionStats.projects}
+                    </dd>
+                  </div>
+                </dl>
+                <ul className="mt-10 grid gap-5 md:grid-cols-2">
+                  {publicProjects.slice(0, 2).map((project) => (
+                    <li
+                      key={project.id}
+                      className="rounded-3xl border border-[var(--line)] bg-white p-7"
+                    >
+                      <p className="text-[11px] uppercase tracking-[0.22em] text-forest-mid">
+                        {project.institution}
+                      </p>
+                      <h3 className="font-display mt-3 text-2xl leading-snug text-forest-deep">
+                        <Link
+                          href={`/supervision/#${project.id}`}
+                          className="underline decoration-teal/40 underline-offset-4 transition hover:decoration-teal"
+                        >
+                          {project.title}
+                        </Link>
+                      </h3>
+                      <p className="mt-3 text-sm leading-relaxed text-muted">
+                        {project.members.map((member) => member.fullName).join(", ")}
+                      </p>
+                      {project.themes.length > 0 ? (
+                        <p className="mt-2 text-sm text-forest">
+                          {project.themes.join(" · ")}
+                        </p>
+                      ) : null}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+            <Link
+              href="/supervision/"
+              className="mt-10 inline-flex rounded-full bg-forest px-6 py-3 text-sm text-cream transition hover:bg-forest-mid"
+            >
+              {supervisionStats.projects > 0
+                ? "All supervised work and alumni"
+                : "About supervision records"}
+            </Link>
+          </div>
+        </section>
+
+        <section id="publications" className="scroll-mt-24 bg-cream-soft py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <p className="text-xs font-medium uppercase tracking-[0.28em] text-teal">
               Publications
@@ -248,7 +322,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="scroll-mt-24 bg-cream-soft py-20 md:py-28">
+        <section id="projects" className="scroll-mt-24 bg-cream py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <p className="text-xs font-medium uppercase tracking-[0.28em] text-teal">
               Research projects

@@ -58,11 +58,13 @@ export const sinta = {
 } as const;
 
 export const nav = [
-  { href: "#biography", label: "Biography" },
-  { href: "#research", label: "Research" },
-  { href: "#publications", label: "Publications" },
-  { href: "#projects", label: "Projects" },
-  { href: "#service", label: "Service" },
-  { href: "#profiles", label: "Profiles" },
-  { href: "#platform", label: "Research platform" },
+  { href: "/#biography", label: "Biography" },
+  { href: "/#research", label: "Research" },
+  { href: "/#teaching", label: "Teaching" },
+  { href: "/supervision/", label: "Supervision" },
+  { href: "/#publications", label: "Publications" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#service", label: "Service" },
+  { href: "/#profiles", label: "Profiles" },
+  { href: "/#platform", label: "Research platform" },
 ] as const;

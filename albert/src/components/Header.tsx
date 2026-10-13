@@ -1,11 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { nav, person } from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isCurrent = (href: string) =>
+    !href.includes("#") && pathname.replace(/\/$/, "") === href.replace(/\/$/, "");
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -26,18 +31,19 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-navy/92 text-cream backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
-        <a href="#top" className="text-sm font-medium tracking-wide text-cream">
+        <Link href="/#top" className="text-sm font-medium tracking-wide text-cream">
           {person.name}
-        </a>
+        </Link>
         <nav className="hidden items-center gap-5 lg:flex" aria-label="Primary">
           {nav.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
-              className="text-[13px] tracking-wide text-cream/85 transition hover:text-teal-bright"
+              aria-current={isCurrent(item.href) ? "page" : undefined}
+              className="text-[13px] tracking-wide text-cream/85 transition hover:text-teal-bright aria-[current=page]:text-teal-bright"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <button
@@ -59,14 +65,15 @@ export function Header() {
         >
           <div className="flex flex-col">
             {nav.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
-                className="py-3 text-lg text-cream"
+                aria-current={isCurrent(item.href) ? "page" : undefined}
+                className="py-3 text-lg text-cream aria-[current=page]:text-teal-bright"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         </nav>

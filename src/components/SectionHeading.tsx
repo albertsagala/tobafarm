@@ -15,7 +15,7 @@ export function SectionHeading({
     <div className="mx-auto max-w-3xl text-center">
       <p
         className={`text-xs font-medium uppercase tracking-[0.28em] ${
-          light ? "text-teal-bright" : "text-teal"
+          light ? "text-teal-bright" : "text-teal-deep"
         }`}
       >
         {eyebrow}

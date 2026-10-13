@@ -1,14 +1,11 @@
 import { About } from "@/components/About";
-import { Architecture } from "@/components/Architecture";
 import { Contact } from "@/components/Contact";
+import { Facility } from "@/components/Facility";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { Innovation } from "@/components/Innovation";
-import { Pillars } from "@/components/Pillars";
-import { Projects } from "@/components/Projects";
-import { RealResearchPlatform } from "@/components/RealResearchPlatform";
-import { ResearchPlatform } from "@/components/ResearchPlatform";
+import { Research } from "@/components/Research";
+import { Team } from "@/components/Team";
 
 export default function Home() {
   return (
@@ -17,12 +14,9 @@ export default function Home() {
       <main id="main">
         <Hero />
         <About />
-        <Pillars />
-        <ResearchPlatform />
-        <RealResearchPlatform />
-        <Architecture />
-        <Innovation />
-        <Projects />
+        <Facility />
+        <Research />
+        <Team />
         <Contact />
       </main>
       <Footer />

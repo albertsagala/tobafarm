@@ -26,12 +26,15 @@ export const metadata: Metadata = {
   applicationName: site.name,
   keywords: [
     "Toba Smart Farming",
+    "pertanian dalam ruang",
+    "container farm",
+    "hidroponik vertikal",
+    "jaringan sensor nirkabel",
+    "pemetaan mikroklimat",
+    "kontrol iklim berbasis AI",
     "intelligent agriculture",
     "indoor vertical farming",
     "IoT sensor networks",
-    "artificial intelligence",
-    "environmental monitoring",
-    "climate control",
     "spatial microclimate",
     "reinforcement learning",
     "precision agriculture",
@@ -52,8 +55,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og.jpg",
-        width: 1376,
-        height: 768,
+        width: 1280,
+        height: 720,
         alt: `${site.name} — ${site.tagline}`,
       },
     ],
@@ -76,16 +79,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang={site.language}
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-cream-soft text-ink">
         <JsonLd />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-cream focus:px-4 focus:py-2 focus:text-forest"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-cream focus:px-4 focus:py-2 focus:text-forest"
         >
-          Skip to content
+          Lewati ke konten
         </a>
         {children}
       </body>

@@ -6,15 +6,15 @@ export default function NotFound() {
       <p className="text-xs uppercase tracking-[0.28em] text-teal-bright">
         404
       </p>
-      <h1 className="font-display mt-4 text-4xl md:text-6xl">Page not found</h1>
-      <p className="mt-4 max-w-md text-cream/70">
-        The page you requested is not part of this site.
+      <h1 className="font-display mt-4 text-4xl md:text-6xl">Halaman tidak ditemukan</h1>
+      <p className="mt-4 max-w-md text-cream/80">
+        Halaman yang Anda cari tidak ada di situs ini.
       </p>
       <Link
         href="/"
-        className="mt-8 rounded-full border border-cream/20 px-6 py-3 text-sm tracking-wide transition hover:border-teal hover:text-teal-bright"
+        className="mt-8 rounded-full border border-cream/40 px-6 py-3 text-sm tracking-wide transition hover:border-teal hover:text-teal-bright"
       >
-        Return home
+        Kembali ke beranda
       </Link>
     </main>
   );

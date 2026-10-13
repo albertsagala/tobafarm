@@ -60,6 +60,7 @@ export const sinta = {
 export const nav = [
   { href: "#biography", label: "Biography" },
   { href: "#research", label: "Research" },
+  { href: "#teaching", label: "Teaching" },
   { href: "#publications", label: "Publications" },
   { href: "#projects", label: "Projects" },
   { href: "#service", label: "Service" },

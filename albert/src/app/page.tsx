@@ -6,6 +6,35 @@ import {
   researchProjects,
 } from "@/lib/records";
 import { person, profiles, researchAreas, sinta } from "@/lib/site";
+import { courses, readings, type TeachingFile } from "@/lib/teaching";
+
+function MaterialGroup({
+  label,
+  items,
+}: {
+  label: string;
+  items: TeachingFile[];
+}) {
+  if (items.length === 0) return null;
+
+  return (
+    <div className="mt-5">
+      <p className="text-[11px] uppercase tracking-[0.22em] text-teal">{label}</p>
+      <ul className="mt-2 space-y-2">
+        {items.map((item) => (
+          <li key={item.href}>
+            <a
+              href={item.href}
+              className="text-base leading-snug text-forest-deep underline decoration-teal/40 underline-offset-4 transition hover:decoration-teal"
+            >
+              {item.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -112,7 +141,58 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="publications" className="scroll-mt-24 bg-cream-soft py-20 md:py-28">
+        <section id="teaching" className="scroll-mt-24 bg-cream-soft py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-5 md:px-8">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-teal">
+              Kuliah
+            </p>
+            <h2 className="font-display mt-3 max-w-3xl text-4xl text-forest-deep md:text-5xl">
+              Teaching
+            </h2>
+            <p className="mt-5 max-w-2xl leading-relaxed text-muted">
+              Courses at {person.institution}.
+            </p>
+            <ol className="mt-12 grid gap-5 md:grid-cols-2">
+              {courses.map((course, index) => (
+                <li
+                  key={course.slug}
+                  id={course.slug}
+                  className="scroll-mt-28 rounded-3xl border border-[var(--line)] bg-white p-7"
+                >
+                  <p className="text-[11px] uppercase tracking-[0.22em] text-teal">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="font-display mt-3 text-2xl text-forest-deep">
+                    {course.title}
+                  </h3>
+                  <MaterialGroup label="Slides" items={course.slides} />
+                  <MaterialGroup label="Modules" items={course.modules} />
+                </li>
+              ))}
+            </ol>
+            {readings.length > 0 ? (
+              <div className="mt-16">
+                <h3 className="font-display text-3xl text-forest-deep">
+                  Tulisan populer
+                </h3>
+                <ol className="mt-6 divide-y divide-[var(--line)] border-y border-[var(--line)]">
+                  {readings.map((item) => (
+                    <li key={item.href} className="py-5">
+                      <a
+                        href={item.href}
+                        className="text-lg leading-snug text-forest-deep underline decoration-teal/40 underline-offset-4 transition hover:decoration-teal"
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ) : null}
+          </div>
+        </section>
+
+        <section id="publications" className="scroll-mt-24 bg-cream py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <p className="text-xs font-medium uppercase tracking-[0.28em] text-teal">
               Publications
@@ -168,7 +248,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="scroll-mt-24 bg-cream py-20 md:py-28">
+        <section id="projects" className="scroll-mt-24 bg-cream-soft py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <p className="text-xs font-medium uppercase tracking-[0.28em] text-teal">
               Research projects

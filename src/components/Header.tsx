@@ -56,7 +56,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-        <a href="#top" className="text-cream" aria-label="Toba Smart Farming, ke awal halaman">
+        <a href="/" className="text-cream" aria-label="Toba Smart Farming, ke awal halaman">
           <Logo />
         </a>
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Utama">
@@ -71,10 +71,10 @@ export function Header() {
           ))}
         </nav>
         <a
-          href="#contact"
+          href="/kolaborasi/"
           className="hidden rounded-full border border-teal/50 bg-teal/10 px-4 py-2 text-sm text-teal-bright transition hover:border-teal hover:bg-teal/20 lg:inline-flex"
         >
-          Hubungi kami
+          Ajukan kolaborasi
         </a>
         <button
           ref={toggleRef}

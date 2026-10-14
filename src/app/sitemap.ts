@@ -14,6 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${site.url}/kolaborasi/`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${site.url}/artikel/gradien-suhu-horizontal-rak/`,
       lastModified,
       changeFrequency: "monthly",

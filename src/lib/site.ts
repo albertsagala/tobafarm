@@ -17,7 +17,7 @@ export const nav = [
   { href: "#articles", label: "Artikel" },
   { href: "#projects", label: "Riset & Proyek" },
   { href: "#team", label: "Tim" },
-  { href: "#contact", label: "Kontak" },
+  { href: "/kolaborasi/", label: "Kolaborasi" },
 ] as const;
 
 export function isValidEmail(value: string | undefined | null): value is string {

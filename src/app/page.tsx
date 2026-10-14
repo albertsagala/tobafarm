@@ -18,6 +18,12 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    metric: "27 nodes",
+    title: "From IoT to Edge-to-Cloud: A Resilient Architecture for Container Farming",
+    summary: "Sensor data reaches a Jetson Nano for local decisions, while a local server and Cloudflare Tunnel make monitoring available online.",
+    href: "/articles/from-iot-to-edge-cloud/",
+  },
+  {
     metric: "4.6×",
     title: "Why Do Horizontal Temperature Differences Matter More Than Rack Height?",
     summary: "During one AC recovery event, the horizontal temperature gap reached 3.33°C, compared with 0.72°C vertically.",
@@ -164,7 +170,7 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <p className="text-xs uppercase tracking-[0.22em] text-teal-deep">Articles & findings</p>
             <h2 className="font-display mt-3 text-4xl text-forest-deep md:text-5xl">Evidence from the facility</h2>
-            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
               {articles.map(article=>(
                 <article key={article.href} className="flex flex-col overflow-hidden rounded-3xl border border-[var(--line)] bg-cream-soft">
                   <div className="bg-forest-deep p-7 text-cream"><p className="font-display text-5xl">{article.metric}</p></div>

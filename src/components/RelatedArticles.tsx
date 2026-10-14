@@ -1,11 +1,13 @@
 import Link from "next/link";
 
 const enArticles = [
+  { path: "/articles/from-iot-to-edge-cloud/", title: "From IoT to Edge-to-Cloud: A Resilient Architecture for Container Farming", topic: "IoT, edge control, and remote monitoring" },
   { path: "/articles/horizontal-temperature-gradient/", title: "Why Do Horizontal Temperature Differences Matter More Than Rack Height?", topic: "Horizontal and vertical gradients" },
   { path: "/articles/ac-and-microclimate-uniformity/", title: "The AC Cooled the Container Farm—but Not Uniformly", topic: "Cooling and spatial uniformity" },
   { path: "/articles/vpd-container-farm/", title: "VPD in a Container Farm: Good Temperature Is Not Enough", topic: "VPD and humidity" },
 ];
 const idArticles = [
+  { path: "/id/artikel/dari-iot-ke-edge-cloud/", title: "Dari IoT ke Edge-to-Cloud: arsitektur tangguh untuk container farm", topic: "IoT, kontrol edge, dan monitoring daring" },
   { path: "/id/artikel/gradien-suhu-horizontal-rak/", title: "Mengapa perbedaan suhu horizontal lebih penting daripada ketinggian rak?", topic: "Gradien horizontal dan vertikal" },
   { path: "/id/artikel/ac-dan-keseragaman-mikroklimat/", title: "AC mendinginkan container farm—tetapi tidak merata", topic: "Pendinginan dan keseragaman spasial" },
   { path: "/id/artikel/vpd-container-farm/", title: "VPD di Container Farm: suhu terlihat baik belum tentu cukup", topic: "VPD dan kelembapan" },

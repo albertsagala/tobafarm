@@ -4,6 +4,16 @@ import { SectionHeading } from "@/components/SectionHeading";
 
 const articles = [
   {
+    category: "IoT · Edge computing · Infrastruktur",
+    metric: "27 node",
+    metricNote: "mengirim data ke Jetson Nano untuk penyimpanan, monitoring, dan keputusan kontrol lokal.",
+    date: "14 Oktober 2026",
+    title: "Dari IoT ke Edge-to-Cloud: arsitektur tangguh untuk container farm",
+    summary:
+      "Arsitektur riset kami mempertahankan kontrol AC, humidifier, dan injeksi CO₂ di edge, sementara dashboard lokal dapat dipantau secara daring melalui Cloudflare Tunnel.",
+    href: "/id/artikel/dari-iot-ke-edge-cloud/",
+  },
+  {
     category: "Mikroklimat spasial · Distribusi udara",
     metric: "4,6×",
     metricNote: "gradien horizontal lebih besar daripada gradien vertikal pada akhir pemulihan.",
@@ -46,7 +56,7 @@ export function Articles() {
             description="Penjelasan ringkas tentang hasil pengukuran, batas interpretasi, dan implikasinya bagi rekayasa sistem indoor farming."
           />
         </Reveal>
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {articles.map((article, index) => (
             <Reveal key={article.href} delayMs={index * 80} className="h-full">
               <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--line)] bg-cream-soft">

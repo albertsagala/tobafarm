@@ -13,6 +13,7 @@ export const site = {
 export const nav = [
   { href: "#about", label: "Tentang" },
   { href: "#facility", label: "Fasilitas" },
+  { href: "#articles", label: "Artikel" },
   { href: "#projects", label: "Riset & Proyek" },
   { href: "#team", label: "Tim" },
   { href: "#contact", label: "Kontak" },

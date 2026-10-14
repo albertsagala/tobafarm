@@ -7,9 +7,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${site.url}/`,
-      lastModified: new Date("2026-10-12"),
-      changeFrequency: "monthly",
+      lastModified: new Date("2026-10-14"),
+      changeFrequency: "weekly",
       priority: 1,
+    },
+    {
+      url: `${site.url}/artikel/vpd-container-farm/`,
+      lastModified: new Date("2026-10-14"),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
   ];
 }

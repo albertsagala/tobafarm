@@ -4,6 +4,16 @@ import { SectionHeading } from "@/components/SectionHeading";
 
 const articles = [
   {
+    category: "Mikroklimat spasial · Distribusi udara",
+    metric: "4,6×",
+    metricNote: "gradien horizontal lebih besar daripada gradien vertikal pada akhir pemulihan.",
+    date: "14 Oktober 2026",
+    title: "Mengapa perbedaan suhu horizontal lebih penting daripada ketinggian rak?",
+    summary:
+      "Pada kejadian pemulihan AC, selisih kiri–tengah mencapai 3,33°C, sedangkan selisih atas–bawah hanya 0,72°C. Temuan ini mengarahkan perhatian dari sekadar ketinggian rak menuju distribusi aliran udara sepanjang kontainer.",
+    href: "/artikel/gradien-suhu-horizontal-rak/",
+  },
+  {
     category: "Mikroklimat spasial · Pendinginan",
     metric: "5,03°C",
     metricNote: "rentang suhu antarsensor ketika AC menyala.",
@@ -36,7 +46,7 @@ export function Articles() {
             description="Penjelasan ringkas tentang hasil pengukuran, batas interpretasi, dan implikasinya bagi rekayasa sistem indoor farming."
           />
         </Reveal>
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {articles.map((article, index) => (
             <Reveal key={article.href} delayMs={index * 80} className="h-full">
               <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--line)] bg-cream-soft">

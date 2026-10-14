@@ -2,14 +2,26 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { LanguageSwitch } from "@/components/LanguageSwitch";
 import { Logo } from "@/components/Logo";
-import { nav } from "@/lib/site";
+import { navEn, navId } from "@/lib/site";
 
-export function Header() {
+export function Header({
+  locale = "en",
+  enHref = "/",
+  idHref = "/id/",
+}: {
+  locale?: "en" | "id";
+  enHref?: string;
+  idHref?: string;
+}) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLElement>(null);
+  const nav = locale === "en" ? navEn : navId;
+  const home = locale === "en" ? "/" : "/id/";
+  const collaboration = locale === "en" ? "/collaboration/" : "/id/kolaborasi/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -28,7 +40,6 @@ export function Header() {
   useEffect(() => {
     if (!open) return;
     menuRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
-
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setOpen(false);
@@ -55,34 +66,33 @@ export function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-        <a href="/" className="text-cream" aria-label="Toba Smart Farming, ke awal halaman">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8">
+        <a href={home} className="shrink-0 text-cream" aria-label="Toba Smart Farming">
           <Logo />
         </a>
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Utama">
+        <nav className="hidden items-center gap-5 xl:flex" aria-label={locale === "en" ? "Main" : "Utama"}>
           {nav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm tracking-wide text-cream/85 transition hover:text-teal-bright"
-            >
+            <a key={item.href} href={item.href} className="text-sm tracking-wide text-cream/85 transition hover:text-teal-bright">
               {item.label}
             </a>
           ))}
         </nav>
-        <a
-          href="/kolaborasi/"
-          className="hidden rounded-full border border-teal/50 bg-teal/10 px-4 py-2 text-sm text-teal-bright transition hover:border-teal hover:bg-teal/20 lg:inline-flex"
-        >
-          Ajukan kolaborasi
-        </a>
+        <div className="hidden items-center gap-3 lg:flex">
+          <LanguageSwitch locale={locale} enHref={enHref} idHref={idHref} />
+          <a
+            href={collaboration}
+            className="rounded-full border border-teal/50 bg-teal/10 px-4 py-2 text-sm text-teal-bright transition hover:border-teal hover:bg-teal/20"
+          >
+            {locale === "en" ? "Work with us" : "Ajukan kolaborasi"}
+          </a>
+        </div>
         <button
           ref={toggleRef}
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-md text-cream lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md text-cream xl:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
-          aria-label={open ? "Tutup menu" : "Buka menu"}
+          aria-label={open ? (locale === "en" ? "Close menu" : "Tutup menu") : (locale === "en" ? "Open menu" : "Buka menu")}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}
@@ -92,17 +102,14 @@ export function Header() {
         ref={menuRef}
         id="mobile-nav"
         hidden={!open}
-        className="max-h-[calc(100svh-4.5rem)] overflow-y-auto border-t border-white/10 bg-navy px-5 py-4 lg:hidden"
-        aria-label="Menu seluler"
+        className="max-h-[calc(100svh-4.5rem)] overflow-y-auto border-t border-white/10 bg-navy px-5 py-4 xl:hidden"
+        aria-label={locale === "en" ? "Mobile menu" : "Menu seluler"}
       >
+        <div className="mb-3"><LanguageSwitch locale={locale} enHref={enHref} idHref={idHref} /></div>
         <ul className="flex flex-col">
           {nav.map((item) => (
             <li key={item.href}>
-              <a
-                href={item.href}
-                className="block py-3 text-lg text-cream/90 transition hover:text-teal-bright"
-                onClick={() => setOpen(false)}
-              >
+              <a href={item.href} className="block py-3 text-lg text-cream/90 transition hover:text-teal-bright" onClick={() => setOpen(false)}>
                 {item.label}
               </a>
             </li>

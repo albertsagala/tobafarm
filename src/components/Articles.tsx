@@ -11,7 +11,7 @@ const articles = [
     title: "Mengapa perbedaan suhu horizontal lebih penting daripada ketinggian rak?",
     summary:
       "Pada kejadian pemulihan AC, selisih kiri–tengah mencapai 3,33°C, sedangkan selisih atas–bawah hanya 0,72°C. Temuan ini mengarahkan perhatian dari sekadar ketinggian rak menuju distribusi aliran udara sepanjang kontainer.",
-    href: "/artikel/gradien-suhu-horizontal-rak/",
+    href: "/id/artikel/gradien-suhu-horizontal-rak/",
   },
   {
     category: "Mikroklimat spasial · Pendinginan",
@@ -21,7 +21,7 @@ const articles = [
     title: "AC mendinginkan container farm—tetapi tidak merata",
     summary:
       "Analisis 544 waktu pengamatan menunjukkan suhu rata-rata turun saat AC menyala, tetapi ketimpangan suhu antarlokasi membesar. Temuan ini menjelaskan mengapa kontrol berbasis satu sensor dapat menyesatkan.",
-    href: "/artikel/ac-dan-keseragaman-mikroklimat/",
+    href: "/id/artikel/ac-dan-keseragaman-mikroklimat/",
   },
   {
     category: "VPD · Temuan fasilitas",
@@ -31,7 +31,7 @@ const articles = [
     title: "VPD di Container Farm: suhu terlihat baik belum tentu cukup",
     summary:
       "Pengamatan 48,1 jam menunjukkan masalah kelembapan malam yang tidak terlihat bila evaluasi hanya memakai suhu rata-rata. Artikel ini membahas data, keterbatasan air-VPD, serta arah kontrol suhu–kelembapan berikutnya.",
-    href: "/artikel/vpd-container-farm/",
+    href: "/id/artikel/vpd-container-farm/",
   },
 ];
 

@@ -5,6 +5,7 @@ type ArticleJsonLdProps = {
   description: string;
   path: string;
   datePublished: string;
+  locale?: "en" | "id";
 };
 
 export function ArticleJsonLd({
@@ -12,6 +13,7 @@ export function ArticleJsonLd({
   description,
   path,
   datePublished,
+  locale = "en",
 }: ArticleJsonLdProps) {
   const data = {
     "@context": "https://schema.org",
@@ -21,34 +23,11 @@ export function ArticleJsonLd({
     image: `${site.url}/og.jpg`,
     datePublished,
     dateModified: datePublished,
-    inLanguage: "id-ID",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${site.url}${path}`,
-    },
-    author: {
-      "@type": "Person",
-      name: "Albert Sagala",
-    },
-    publisher: {
-      "@type": "ResearchOrganization",
-      name: site.name,
-      url: site.url,
-    },
-    about: [
-      "Indoor farming",
-      "Spatial microclimate",
-      "Climate control",
-      "Container farming",
-    ],
+    inLanguage: locale === "en" ? "en-US" : "id-ID",
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${site.url}${path}` },
+    author: { "@type": "Person", name: "Albert Sagala" },
+    publisher: { "@type": "ResearchOrganization", name: site.name, url: site.url },
+    about: ["Indoor farming", "Spatial microclimate", "Climate control", "Container farming"],
   };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(data).replace(/</g, "\\u003c"),
-      }}
-    />
-  );
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;
 }

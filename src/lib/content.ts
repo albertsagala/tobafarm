@@ -511,6 +511,11 @@ export const researchLead: TeamMember = {
       note: "Profil profesional",
       href: "https://www.linkedin.com/in/albert-sagala-47b963235",
     },
+    {
+      label: "ResearchGate",
+      note: "Publikasi dan jejaring riset",
+      href: "https://www.researchgate.net/profile/Albert-Sagala",
+    },
   ],
 };
 

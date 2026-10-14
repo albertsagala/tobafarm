@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArticleJsonLd } from "@/components/ArticleJsonLd";
 import { Logo } from "@/components/Logo";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { site } from "@/lib/site";
 
 const path = "/artikel/ac-dan-keseragaman-mikroklimat/";
@@ -18,6 +20,13 @@ export const metadata: Metadata = {
       "Pada 544 waktu pengamatan, rentang suhu spasial meningkat dari 2,78°C ketika AC mati menjadi 5,03°C ketika AC menyala.",
     publishedTime: "2026-10-14",
     authors: ["Albert Sagala"],
+    images: [{ url: "/og.jpg", width: 1280, height: 720, alt: "AC Mendinginkan Container Farm, tetapi Tidak Merata" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AC Mendinginkan Container Farm, tetapi Tidak Merata",
+    description: "Analisis 27 sensor menunjukkan operasi AC berkaitan dengan suhu rata-rata lebih rendah, tetapi penyebaran suhu antarlokasi lebih lebar.",
+    images: ["/og.jpg"],
   },
 };
 
@@ -52,6 +61,12 @@ export default function AcSpatialArticlePage() {
 
       <main id="main">
         <article>
+          <ArticleJsonLd
+            headline={"AC Mendinginkan Container Farm, tetapi Tidak Merata"}
+            description={"Analisis 27 sensor menunjukkan operasi AC berkaitan dengan suhu rata-rata lebih rendah, tetapi penyebaran suhu antarlokasi lebih lebar."}
+            path={path}
+            datePublished="2026-10-14"
+          />
           <section className="bg-navy text-cream">
             <div className="mx-auto max-w-5xl px-5 py-16 md:px-8 md:py-24">
               <p className="text-xs font-medium uppercase tracking-[0.22em] text-teal-bright">
@@ -308,6 +323,7 @@ export default function AcSpatialArticlePage() {
             </div>
           </div>
         </article>
+        <RelatedArticles currentPath={path} />
       </main>
 
       <footer className="border-t border-[var(--line)] bg-white">

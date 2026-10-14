@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArticleJsonLd } from "@/components/ArticleJsonLd";
 import { Logo } from "@/components/Logo";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { site } from "@/lib/site";
 
 const path = "/artikel/gradien-suhu-horizontal-rak/";
@@ -18,6 +20,13 @@ export const metadata: Metadata = {
       "Data 24 sensor aktif menunjukkan posisi kiri–tengah–kanan lebih menentukan ketidakseragaman suhu daripada perbedaan lapisan bawah–tengah–atas pada satu kejadian pemulihan.",
     publishedTime: "2026-10-14",
     authors: ["Albert Sagala"],
+    images: [{ url: "/og.jpg", width: 1280, height: 720, alt: "Mengapa Perbedaan Suhu Horizontal Lebih Penting daripada Ketinggian Rak?" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mengapa Perbedaan Suhu Horizontal Lebih Penting daripada Ketinggian Rak?",
+    description: "Analisis pemulihan AC menunjukkan selisih suhu horizontal 3,33°C, sekitar 4,6 kali selisih antarlapisan vertikal pada akhir pengamatan.",
+    images: ["/og.jpg"],
   },
 };
 
@@ -49,6 +58,12 @@ export default function HorizontalGradientArticlePage() {
 
       <main id="main">
         <article>
+          <ArticleJsonLd
+            headline={"Mengapa Perbedaan Suhu Horizontal Lebih Penting daripada Ketinggian Rak?"}
+            description={"Analisis pemulihan AC menunjukkan selisih suhu horizontal 3,33°C, sekitar 4,6 kali selisih antarlapisan vertikal pada akhir pengamatan."}
+            path={path}
+            datePublished="2026-10-14"
+          />
           <section className="bg-navy text-cream">
             <div className="mx-auto max-w-5xl px-5 py-16 md:px-8 md:py-24">
               <p className="text-xs font-medium uppercase tracking-[0.22em] text-teal-bright">
@@ -282,6 +297,7 @@ export default function HorizontalGradientArticlePage() {
             </div>
           </div>
         </article>
+        <RelatedArticles currentPath={path} />
       </main>
 
       <footer className="border-t border-[var(--line)] bg-white">

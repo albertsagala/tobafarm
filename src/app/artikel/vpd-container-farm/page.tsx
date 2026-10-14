@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArticleJsonLd } from "@/components/ArticleJsonLd";
 import { Logo } from "@/components/Logo";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { site } from "@/lib/site";
 
 const path = "/artikel/vpd-container-farm/";
@@ -18,6 +20,13 @@ export const metadata: Metadata = {
       "Data 48,1 jam menunjukkan hanya 48,16% waktu berada pada rentang air-VPD operasional 0,6–1,2 kPa.",
     publishedTime: "2026-10-14",
     authors: ["Albert Sagala"],
+    images: [{ url: "/og.jpg", width: 1280, height: 720, alt: "VPD di Container Farm: Temuan dari Fasilitas 10 Kaki" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "VPD di Container Farm: Temuan dari Fasilitas 10 Kaki",
+    description: "Analisis air-VPD dari fasilitas indoor farming 10 kaki di Pintubosi: kepatuhan 48,16%, masalah kelembapan malam, dan implikasi kontrol iklim.",
+    images: ["/og.jpg"],
   },
 };
 
@@ -51,6 +60,12 @@ export default function VpdArticlePage() {
 
       <main id="main">
         <article>
+          <ArticleJsonLd
+            headline={"VPD di Container Farm: Temuan dari Fasilitas 10 Kaki"}
+            description={"Analisis air-VPD dari fasilitas indoor farming 10 kaki di Pintubosi: kepatuhan 48,16%, masalah kelembapan malam, dan implikasi kontrol iklim."}
+            path={path}
+            datePublished="2026-10-14"
+          />
           <section className="bg-navy text-cream">
             <div className="mx-auto max-w-5xl px-5 py-16 md:px-8 md:py-24">
               <p className="text-xs font-medium uppercase tracking-[0.22em] text-teal-bright">
@@ -235,6 +250,7 @@ export default function VpdArticlePage() {
             </aside>
           </div>
         </article>
+        <RelatedArticles currentPath={path} />
       </main>
 
       <footer className="border-t border-[var(--line)] bg-white">

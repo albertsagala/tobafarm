@@ -1,3 +1,4 @@
+import { AcademicOverview } from "@/components/AcademicOverview";
 import type { Metadata } from "next";
 import { About } from "@/components/About";
 import { Articles } from "@/components/Articles";
@@ -27,6 +28,7 @@ export default function Home() {
         <Gallery />
         <Articles />
         <Research />
+        <AcademicOverview locale="id" />
         <Team />
         <Contact />
       </main>

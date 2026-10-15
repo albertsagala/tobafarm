@@ -1,3 +1,4 @@
+import { AcademicOverview } from "@/components/AcademicOverview";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -197,9 +198,11 @@ export default function Home() {
           </div>
         </section>
 
+        <AcademicOverview locale="en" />
+
         <section id="team" className="scroll-mt-24 bg-white py-20 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-10 px-5 md:px-8 lg:grid-cols-[0.8fr_1.2fr]">
-            <div><p className="text-xs uppercase tracking-[0.22em] text-teal-deep">Research lead</p><h2 className="font-display mt-3 text-4xl text-forest-deep md:text-5xl">Albert Sagala</h2><p className="mt-4 leading-7 text-muted">Associate Professor of Electrical Engineering, Institut Teknologi Del. PhD Candidate in Engineering Physics, Institut Teknologi Bandung.</p></div>
+            <div><Image src="/images/albert-sagala.webp" alt="Albert Sagala" width={900} height={900} sizes="(max-width: 1024px) 90vw, 360px" className="mb-7 w-full max-w-sm rounded-3xl object-cover" /><p className="text-xs uppercase tracking-[0.22em] text-teal-deep">Research lead</p><h2 className="font-display mt-3 text-4xl text-forest-deep md:text-5xl">Albert Sagala</h2><p className="mt-4 leading-7 text-muted">Associate Professor of Electrical Engineering, Institut Teknologi Del. PhD Candidate in Engineering Physics, Institut Teknologi Bandung.</p></div>
             <div className="grid gap-4 sm:grid-cols-2">
               {profiles.map(([label,href])=><a key={label} href={href} target="_blank" rel="noreferrer" className="rounded-2xl border border-[var(--line)] bg-cream-soft p-5 font-medium text-forest-deep transition hover:border-teal/50">{label}</a>)}
             </div>

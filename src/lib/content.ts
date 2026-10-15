@@ -478,6 +478,7 @@ export type TeamMember = {
 };
 
 export const researchLead: TeamMember = {
+  photo: { src: "/images/albert-sagala.webp", width: 900, height: 900 },
   name: "Albert Sagala",
   role: "Pemimpin riset",
   positions: [

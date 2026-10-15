@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 };
 
 const articles = [
+  { metric: "Space & time", title: "Mapping Space, Forecasting Time: Kriging and SARIMA for Indoor Farming", summary: "Kriging, IDW, RBF, ARIMA, and SARIMA: their roles, seasonal periods, and validation without data leakage.", href: "/articles/kriging-sarima-microclimate/" },
   { metric: "AI & farming", title: "Nine AI Trends Shaping Indoor Vertical Farming in 2026", summary: "A source-based overview of safe RL, digital twins, edge AI, and emerging research opportunities.", href: "/articles/ai-trends-indoor-vertical-farming-2026/" },
   { metric: "Monitoring", title: "Grafana for Indoor Farming Monitoring", summary: "Connect sensor readings, actuator states, and operational diagnosis in one dashboard.", href: "/articles/grafana-indoor-farming-monitoring/" },
   { metric: "Haze & crops", title: "When Smoke Hides the Sun: What Toba\u2019s Haze Means for Farmers", summary: "Which crop stages need attention, what smoke changes, and how farmers can document risks without guessing harvest losses.", href: "/articles/toba-haze-crop-risk/" },

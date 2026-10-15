@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const enArticles = [
+  { path: "/articles/kriging-sarima-microclimate/", title: "Mapping Space, Forecasting Time: Kriging and SARIMA", topic: "Kriging, IDW, RBF, ARIMA, SARIMA" },
   { path: "/articles/ai-trends-indoor-vertical-farming-2026/", title: "Nine AI Trends Shaping Indoor Vertical Farming in 2026", topic: "AI, controlled environments, and research outlook" },
   { path: "/articles/grafana-indoor-farming-monitoring/", title: "Grafana Dashboards for Real-Time Indoor Farming Monitoring", topic: "Grafana, sensor health, actuators, and alerts" },
   { path: "/articles/toba-haze-crop-risk/", title: "When Smoke Hides the Sun: What Toba\u2019s Haze Means for Farmers", topic: "Field agriculture \u00b7 Haze \u00b7 Crop resilience" },
@@ -10,6 +11,7 @@ const enArticles = [
   { path: "/articles/vpd-container-farm/", title: "VPD in a Container Farm: Good Temperature Is Not Enough", topic: "VPD and humidity" },
 ];
 const idArticles = [
+  { path: "/id/artikel/kriging-sarima-mikroklimat/", title: "Memetakan Ruang, Meramalkan Waktu: Kriging dan SARIMA", topic: "Kriging, IDW, RBF, ARIMA, SARIMA" },
   { path: "/id/artikel/tren-ai-indoor-vertical-farming-2026/", title: "Sembilan tren AI yang membentuk indoor vertical farming pada 2026", topic: "AI, lingkungan terkendali, dan arah riset" },
   { path: "/id/artikel/dashboard-grafana-monitoring/", title: "Dashboard Grafana untuk monitoring indoor farming secara real-time", topic: "Grafana, kesehatan sensor, aktuator, dan alarm" },
   { path: "/id/artikel/asap-toba-risiko-tanaman/", title: "Saat Asap Menutupi Matahari: Apa Artinya bagi Petani Toba?", topic: "Pertanian lapangan \u00b7 Kabut asap \u00b7 Ketahanan tanaman" },

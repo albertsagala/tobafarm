@@ -3,6 +3,7 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 
 const articles = [
+  { category: "Grafana · Monitoring · Indoor farming", metric: "27 node", metricNote: "dipantau bersama status AC, humidifier, CO₂, kesehatan sensor, dan alarm operasional.", date: "15 Oktober 2026", title: "Dashboard Grafana untuk monitoring indoor farming secara real-time", summary: "Cara mengubah data sensor dan aktuator menjadi dashboard operasional yang membantu diagnosis mikroklimat, evaluasi kontrol, dan deteksi gangguan.", href: "/id/artikel/dashboard-grafana-monitoring/" },
   { category: "Kabut asap · Pertanian lapangan", metric: "Fase kritis", metricNote: "prioritaskan pembungaan dan pembentukan hasil untuk pemeriksaan.", date: "15 Oktober 2026", title: "Saat Asap Menutupi Matahari: Apa Artinya bagi Petani Toba?", summary: "Risiko fotosintesis, fase rentan, dan panduan pencatatan bagi petani Toba tanpa menebak angka kerugian panen.", href: "/id/artikel/asap-toba-risiko-tanaman/" },
   {
     category: "IoT · Edge computing · Infrastruktur",

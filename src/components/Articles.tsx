@@ -3,6 +3,7 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 
 const articles = [
+  { category: "AI · Indoor vertical farming · Arah riset", metric: "9 tren", metricNote: "dipilah berdasarkan kematangan, nilai praktis, dan peluang kontribusi ilmiah.", date: "15 Oktober 2026", title: "Sembilan tren AI yang membentuk indoor vertical farming pada 2026", summary: "Dari Safe RL dan digital twin hingga edge AI, phenotyping, predictive maintenance, dan asisten LLM—termasuk mana yang nyata dan mana yang masih hype.", href: "/id/artikel/tren-ai-indoor-vertical-farming-2026/" },
   { category: "Grafana · Monitoring · Indoor farming", metric: "27 node", metricNote: "dipantau bersama status AC, humidifier, CO₂, kesehatan sensor, dan alarm operasional.", date: "15 Oktober 2026", title: "Dashboard Grafana untuk monitoring indoor farming secara real-time", summary: "Cara mengubah data sensor dan aktuator menjadi dashboard operasional yang membantu diagnosis mikroklimat, evaluasi kontrol, dan deteksi gangguan.", href: "/id/artikel/dashboard-grafana-monitoring/" },
   { category: "Kabut asap · Pertanian lapangan", metric: "Fase kritis", metricNote: "prioritaskan pembungaan dan pembentukan hasil untuk pemeriksaan.", date: "15 Oktober 2026", title: "Saat Asap Menutupi Matahari: Apa Artinya bagi Petani Toba?", summary: "Risiko fotosintesis, fase rentan, dan panduan pencatatan bagi petani Toba tanpa menebak angka kerugian panen.", href: "/id/artikel/asap-toba-risiko-tanaman/" },
   {

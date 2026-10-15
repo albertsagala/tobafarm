@@ -2,7 +2,7 @@ import { AcademicOverview } from "@/components/AcademicOverview";
 import type { Metadata } from "next";
 import { About } from "@/components/About";
 import { Articles } from "@/components/Articles";
-import { Contact } from "@/components/Contact";
+import { ResearchStories, CollaborationPaths, ResourceLinks } from "@/components/ResearchStories";
 import { Facility } from "@/components/Facility";
 import { Footer } from "@/components/Footer";
 import { Gallery } from "@/components/Gallery";
@@ -21,8 +21,9 @@ export default function Home() {
   return (
     <>
       <Header locale="id" />
-      <main>
-        <Hero />
+      <main id="main">
+        <Hero locale="id" />
+        <ResearchStories locale="id" />
         <About />
         <Facility />
         <Gallery />
@@ -30,7 +31,8 @@ export default function Home() {
         <Research />
         <AcademicOverview locale="id" />
         <Team />
-        <Contact />
+        <ResourceLinks locale="id" />
+        <CollaborationPaths locale="id" />
       </main>
       <Footer locale="id" />
     </>

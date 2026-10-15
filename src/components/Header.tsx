@@ -46,7 +46,7 @@ export function Header({
         toggleRef.current?.focus();
       }
     };
-    const desktop = window.matchMedia("(min-width: 1024px)");
+    const desktop = window.matchMedia("(min-width: 1280px)");
     const onBreakpoint = (event: MediaQueryListEvent) => {
       if (event.matches) setOpen(false);
     };
@@ -63,7 +63,7 @@ export function Header({
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled || open
           ? "border-b border-white/10 bg-navy/95 backdrop-blur-md"
-          : "bg-transparent"
+          : "bg-navy"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8">

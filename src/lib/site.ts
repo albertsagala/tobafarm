@@ -11,27 +11,21 @@ export const site = {
 } as const;
 
 export const navEn = [
-  { href: "/#about", label: "About" },
+  { href: "/#research-stories", label: "Research" },
   { href: "/#facility", label: "Facility" },
-  { href: "/#gallery", label: "Gallery" },
-  { href: "/#articles", label: "Articles" },
-  { href: "/publications/", label: "Publications & Service" },
-  { href: "/#team", label: "Team" },
-  { href: "/supervision/", label: "Students" },
-  { href: "/teaching/", label: "Teaching" },
-  { href: "/collaboration/", label: "Collaboration" },
+  { href: "/#articles", label: "Insights" },
+  { href: "/#team", label: "People" },
+  { href: "/#resources", label: "Resources" },
+  { href: "/#contact", label: "Collaborate" },
 ] as const;
 
 export const navId = [
-  { href: "/id/#about", label: "Tentang" },
+  { href: "/id/#research-stories", label: "Riset" },
   { href: "/id/#facility", label: "Fasilitas" },
-  { href: "/id/#gallery", label: "Galeri" },
   { href: "/id/#articles", label: "Artikel" },
-  { href: "/id/publikasi/", label: "Publikasi & PkM" },
   { href: "/id/#team", label: "Tim" },
-  { href: "/id/bimbingan/", label: "Mahasiswa" },
-  { href: "/id/materi-ajar/", label: "Materi Ajar" },
-  { href: "/id/kolaborasi/", label: "Kolaborasi" },
+  { href: "/id/#resources", label: "Sumber Belajar" },
+  { href: "/id/#contact", label: "Kolaborasi" },
 ] as const;
 
 export const nav = navEn;

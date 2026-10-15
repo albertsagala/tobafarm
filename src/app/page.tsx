@@ -5,7 +5,8 @@ import Link from "next/link";
 import { Activity, BrainCircuit, Database, Radio, Settings2 } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { site } from "@/lib/site";
+import { Hero } from "@/components/Hero";
+import { ResearchStories, CollaborationPaths, ResourceLinks } from "@/components/ResearchStories";
 
 export const metadata: Metadata = {
   title: "Container-Based Indoor Farming Research",
@@ -18,6 +19,8 @@ export const metadata: Metadata = {
 };
 
 const articles = [
+  { metric: "AI & farming", title: "Nine AI Trends Shaping Indoor Vertical Farming in 2026", summary: "A source-based overview of safe RL, digital twins, edge AI, and emerging research opportunities.", href: "/articles/ai-trends-indoor-vertical-farming-2026/" },
+  { metric: "Monitoring", title: "Grafana for Indoor Farming Monitoring", summary: "Connect sensor readings, actuator states, and operational diagnosis in one dashboard.", href: "/articles/grafana-indoor-farming-monitoring/" },
   { metric: "Haze & crops", title: "When Smoke Hides the Sun: What Toba\u2019s Haze Means for Farmers", summary: "Which crop stages need attention, what smoke changes, and how farmers can document risks without guessing harvest losses.", href: "/articles/toba-haze-crop-risk/" },
   {
     metric: "27 nodes",
@@ -58,30 +61,8 @@ export default function Home() {
     <div className="min-h-screen bg-cream-soft">
       <Header locale="en" />
       <main id="main">
-        <section id="top" className="relative overflow-hidden bg-navy pt-32 text-cream md:pt-40">
-          <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(91,198,184,.18)_1px,transparent_1px),linear-gradient(90deg,rgba(91,198,184,.18)_1px,transparent_1px)] [background-size:48px_48px]" />
-          <div className="relative mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
-            <p className="text-xs font-medium uppercase tracking-[0.24em] text-teal-bright">
-              Instrumented indoor farming research facility
-            </p>
-            <h1 className="font-display mt-6 max-w-5xl text-5xl leading-[1.03] sm:text-6xl md:text-8xl">
-              A container farm measured spatially—and controlled intelligently
-            </h1>
-            <p className="mt-7 max-w-3xl text-lg leading-8 text-cream/75 md:text-xl">
-              Toba Smart Farming studies how distributed sensors, airflow, energy,
-              and data-driven control shape the crop environment inside a compact
-              10-ft container in North Sumatra, Indonesia.
-            </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <a href="#facility" className="rounded-full bg-teal-bright px-6 py-3 text-sm font-medium text-navy transition hover:bg-white">
-                Explore the facility
-              </a>
-              <Link href="/collaboration/" className="rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-cream transition hover:border-teal-bright">
-                Work with us
-              </Link>
-            </div>
-          </div>
-        </section>
+        <Hero locale="en" />
+        <ResearchStories locale="en" />
 
         <section id="about" className="scroll-mt-24 bg-cream-soft py-20 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-8 lg:grid-cols-[0.85fr_1.15fr]">
@@ -171,8 +152,8 @@ export default function Home() {
         <section id="articles" className="scroll-mt-24 bg-white py-20 md:py-28">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <p className="text-xs uppercase tracking-[0.22em] text-teal-deep">Articles & findings</p>
-            <h2 className="font-display mt-3 text-4xl text-forest-deep md:text-5xl">Evidence from the facility</h2>
-            <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            <h2 className="font-display mt-3 text-4xl text-forest-deep md:text-5xl">Latest insights</h2>
+            <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {articles.map(article=>(
                 <article key={article.href} className="flex flex-col overflow-hidden rounded-3xl border border-[var(--line)] bg-cream-soft">
                   <div className="bg-forest-deep p-7 text-cream"><p className="font-display text-5xl">{article.metric}</p></div>
@@ -209,14 +190,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="scroll-mt-24 bg-teal/10 py-20 md:py-24">
-          <div className="mx-auto max-w-4xl px-5 text-center md:px-8">
-            <p className="text-xs uppercase tracking-[0.22em] text-teal-deep">Collaboration</p>
-            <h2 className="font-display mt-3 text-4xl text-forest-deep md:text-5xl">Bring the problem before choosing the technology</h2>
-            <p className="mx-auto mt-5 max-w-2xl leading-7 text-muted">We welcome research, pilot, training, and engineering discussions grounded in measurable needs and realistic scope.</p>
-            <Link href="/collaboration/" className="mt-8 inline-flex rounded-full bg-forest px-6 py-3.5 text-sm font-medium text-white">Explore collaboration options</Link>
-          </div>
-        </section>
+        <ResourceLinks locale="en" />
+        <CollaborationPaths locale="en" />
       </main>
       <Footer locale="en" />
     </div>

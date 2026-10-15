@@ -6,6 +6,7 @@ type ArticleJsonLdProps = {
   path: string;
   datePublished: string;
   locale?: "en" | "id";
+  about?: string[];
 };
 
 export function ArticleJsonLd({
@@ -14,6 +15,7 @@ export function ArticleJsonLd({
   path,
   datePublished,
   locale = "en",
+  about,
 }: ArticleJsonLdProps) {
   const data = {
     "@context": "https://schema.org",
@@ -27,7 +29,7 @@ export function ArticleJsonLd({
     mainEntityOfPage: { "@type": "WebPage", "@id": `${site.url}${path}` },
     author: { "@type": "Person", name: "Albert Sagala" },
     publisher: { "@type": "ResearchOrganization", name: site.name, url: site.url },
-    about: ["Indoor farming", "Spatial microclimate", "Climate control", "Container farming"],
+    about: about ?? ["Indoor farming", "Spatial microclimate", "Climate control", "Container farming"],
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;
 }

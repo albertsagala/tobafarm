@@ -3,6 +3,7 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 
 const articles = [
+  { category: "Kabut asap · Pertanian lapangan", metric: "Fase kritis", metricNote: "prioritaskan pembungaan dan pembentukan hasil untuk pemeriksaan.", date: "15 Oktober 2026", title: "Saat Asap Menutupi Matahari: Apa Artinya bagi Petani Toba?", summary: "Risiko fotosintesis, fase rentan, dan panduan pencatatan bagi petani Toba tanpa menebak angka kerugian panen.", href: "/id/artikel/asap-toba-risiko-tanaman/" },
   {
     category: "IoT · Edge computing · Infrastruktur",
     metric: "27 node",
@@ -52,8 +53,8 @@ export function Articles() {
         <Reveal>
           <SectionHeading
             eyebrow="Artikel & Temuan"
-            title="Catatan berbasis data dari fasilitas"
-            description="Penjelasan ringkas tentang hasil pengukuran, batas interpretasi, dan implikasinya bagi rekayasa sistem indoor farming."
+            title="Catatan riset dan pertanian Toba"
+            description="Temuan fasilitas dan penjelasan berbasis sumber tentang mikroklimat, teknologi pertanian, serta risiko di lapangan."
           />
         </Reveal>
         <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">

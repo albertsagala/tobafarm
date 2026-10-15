@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 };
 
 const articles = [
+  { metric: "Haze & crops", title: "When Smoke Hides the Sun: What Toba\u2019s Haze Means for Farmers", summary: "Which crop stages need attention, what smoke changes, and how farmers can document risks without guessing harvest losses.", href: "/articles/toba-haze-crop-risk/" },
   {
     metric: "27 nodes",
     title: "From IoT to Edge-to-Cloud: A Resilient Architecture for Container Farming",

@@ -18,6 +18,7 @@ export const navEn = [
   { href: "/publications/", label: "Publications & Service" },
   { href: "/#team", label: "Team" },
   { href: "/supervision/", label: "Students" },
+  { href: "/teaching/", label: "Teaching" },
   { href: "/collaboration/", label: "Collaboration" },
 ] as const;
 
@@ -29,6 +30,7 @@ export const navId = [
   { href: "/id/publikasi/", label: "Publikasi & PkM" },
   { href: "/id/#team", label: "Tim" },
   { href: "/id/bimbingan/", label: "Mahasiswa" },
+  { href: "/id/materi-ajar/", label: "Materi Ajar" },
   { href: "/id/kolaborasi/", label: "Kolaborasi" },
 ] as const;
 

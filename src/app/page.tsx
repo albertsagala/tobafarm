@@ -1,3 +1,4 @@
+import { ClimateMetrics } from "@/components/ClimateMetrics";
 import { AcademicOverview } from "@/components/AcademicOverview";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -63,6 +64,7 @@ export default function Home() {
       <Header locale="en" />
       <main id="main">
         <Hero locale="en" />
+        <ClimateMetrics locale="en" />
         <ResearchStories locale="en" />
 
         <section id="about" className="scroll-mt-24 bg-cream-soft py-20 md:py-28">

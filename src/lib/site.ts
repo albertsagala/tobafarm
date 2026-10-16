@@ -11,6 +11,7 @@ export const site = {
 } as const;
 
 export const navEn = [
+  { href: "/#climate", label: "Climate" },
   { href: "/#research-stories", label: "Research" },
   { href: "/#facility", label: "Facility" },
   { href: "/#articles", label: "Insights" },
@@ -20,6 +21,7 @@ export const navEn = [
 ] as const;
 
 export const navId = [
+  { href: "/id/#climate", label: "Cuaca" },
   { href: "/id/#research-stories", label: "Riset" },
   { href: "/id/#facility", label: "Fasilitas" },
   { href: "/id/#articles", label: "Artikel" },

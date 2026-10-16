@@ -44,3 +44,20 @@ Only photographs taken at the facility. No stock or generated images.
 1. Export at most 1600 px on the long edge, JPEG or WebP at about quality 80.
 2. Save under `public/images/facility/`.
 3. Add an entry to `facility.photos` with `src`, the real `width` and `height`, `alt`, and `caption`. Photos are shown uncropped.
+
+## Weather and container demonstration panel
+
+The bilingual homepages include `ClimateMetrics`. BMKG data uses the fixed
+Balige I administrative code `12.12.01.1034` and is explicitly described as a
+three-hour forecast, not a live observation or a Toba-wide climate average.
+The browser refreshes every ten minutes. `functions/api/toba-weather.ts` is a
+Cloudflare Pages Function with a ten-minute cache and twelve-second upstream
+timeout. Keep the root `functions/` directory available in the Pages Git build.
+On static-only hosting the browser falls back to the official BMKG endpoint;
+if neither path works, the interface shows an unavailable state without invented
+weather values. Expired forecast slots are never displayed as current.
+
+Container values and the past-24-hour curves are deterministic synthetic data,
+updated each minute in the browser, with a 06:00–22:00 WIB lighting schedule.
+They must remain visibly labeled as synthetic until replaced by an authenticated
+sensor feed. Lux is an illustrative illuminance value, not a PPFD conversion.

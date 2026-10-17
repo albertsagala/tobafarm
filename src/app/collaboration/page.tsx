@@ -31,7 +31,7 @@ export default function CollaborationPage() {
     <div className="min-h-screen bg-cream-soft">
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,"\\u003c")}} />
       <Header locale="en" enHref="/collaboration/" idHref="/id/kolaborasi/" />
-      <main id="main">
+      <main id="main"><div className="bg-forest-deep px-5 pb-5 pt-28 text-center text-cream"><Link href="/services/" className="underline">Explore fixed-scope IoT review & practical workshop →</Link></div>
         <section id="top" className="bg-navy pt-28 text-cream md:pt-36">
           <div className="mx-auto max-w-7xl px-5 pb-20 md:px-8 md:pb-28">
             <div className="flex justify-end"><LanguageSwitch locale="en" enHref="/collaboration/" idHref="/id/kolaborasi/" /></div>

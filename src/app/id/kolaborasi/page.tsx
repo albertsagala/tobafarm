@@ -145,7 +145,7 @@ export default function CollaborationPage() {
         }}
       />
       <Header locale="id" enHref="/collaboration/" idHref="/id/kolaborasi/" />
-      <main id="main">
+      <main id="main"><div className="bg-forest-deep px-5 pb-5 pt-28 text-center text-cream"><Link href="/id/layanan/" className="underline">Lihat review IoT dan workshop praktik →</Link></div>
         <section id="top" className="bg-navy pt-28 text-cream md:pt-36">
           <div className="mx-auto max-w-7xl px-5 pb-20 md:px-8 md:pb-28">
             <p className="text-xs font-medium uppercase tracking-[0.22em] text-teal-bright">

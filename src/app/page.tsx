@@ -20,6 +20,9 @@ export const metadata: Metadata = {
 };
 
 const articles = [
+  {metric: "Services & Training", title: "IoT system reviews and practical workshops", summary: "Defined deliverables, pilot pricing, and documented speaking and training experience.", href: "/services/"},
+  {metric: "Speaking · 2024", title: "Albert Sagala at BSSN National Cyber Exercise #9", summary: "A retrospective on malware-stealer prevention and digital security awareness, with the original IT Del report.", href: "/activities/bssn-national-cyber-exercise/"},
+  {metric: "Governance · 2024", title: "Information security governance in North Sumatra", summary: "A retrospective on the November 2024 FGD covering governance, SIEM, and the NIST Cybersecurity Framework.", href: "/activities/north-sumatra-information-security/"},
   { metric: "Space & time", title: "Mapping Space, Forecasting Time: Kriging and SARIMA for Indoor Farming", summary: "Kriging, IDW, RBF, ARIMA, and SARIMA: their roles, seasonal periods, and validation without data leakage.", href: "/articles/kriging-sarima-microclimate/" },
   { metric: "AI & farming", title: "Nine AI Trends Shaping Indoor Vertical Farming in 2026", summary: "A source-based overview of safe RL, digital twins, edge AI, and emerging research opportunities.", href: "/articles/ai-trends-indoor-vertical-farming-2026/" },
   { metric: "Monitoring", title: "Grafana for Indoor Farming Monitoring", summary: "Connect sensor readings, actuator states, and operational diagnosis in one dashboard.", href: "/articles/grafana-indoor-farming-monitoring/" },

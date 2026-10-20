@@ -3,6 +3,8 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 
 const articles = [
+  { category: "Jaringan komputer · Cisco Packet Tracer", metric: "3 konsep", metricNote: "VLAN, VTP, dan routing antar-VLAN dalam satu topologi.", date: "20 Oktober 2026", title: "Memahami VLAN, VTP, dan Inter-VLAN Routing melalui Cisco Packet Tracer", summary: "Penjelasan konsep, konfigurasi CLI tiga switch dan satu router, serta pengujian konektivitas untuk mahasiswa Teknik Elektro.", href: "/id/artikel/vtp-vlan-inter-vlan-routing/" },
+
   {category: "Layanan & Pelatihan", metric: "IoT", metricNote: "review sistem dan workshop praktik.", date: "17 Oktober 2026", title: "Review monitoring IoT dan workshop From ESP32 to Grafana", summary: "Cakupan jelas, harga awal, dan pengalaman narasumber terdokumentasi.", href: "/id/layanan/"},
   {category: "Catatan retrospektif · 2024", metric: "BSSN", metricNote: "National Cyber Exercise #9 di Medan.", date: "17 Oktober 2026", title: "Albert Sagala berbagi praktik pencegahan malware stealer", summary: "Keterlibatan sebagai narasumber, dengan rujukan berita resmi IT Del.", href: "/id/kegiatan/bssn-national-cyber-exercise/"},
   {category: "Catatan retrospektif · 2024", metric: "FGD", metricNote: "tata kelola keamanan informasi Sumatera Utara.", date: "17 Oktober 2026", title: "Kontribusi pada diskusi kebijakan keamanan informasi Sumut", summary: "Pembahasan tata kelola, SIEM, dan NIST Cybersecurity Framework dalam FGD November 2024.", href: "/id/kegiatan/tata-kelola-keamanan-informasi-sumut/"},

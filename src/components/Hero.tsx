@@ -4,12 +4,12 @@ import Link from "next/link";
 export function Hero({ locale = "id" }: { locale?: "en" | "id" }) {
   const en = locale === "en";
   return (
-    <section id="top" className="bg-navy pt-28 text-cream md:pt-32">
+    <section id="top" className="bg-navy pt-28 text-cream md:pt-32 border-t-4 border-teal-bright">
       <div className="mx-auto grid max-w-7xl gap-8 px-5 pb-12 md:px-8 md:pb-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-12">
         <div>
           <p className="text-xs font-medium uppercase leading-6 tracking-[0.2em] text-teal-bright">{en ? "Toba, Indonesia · Indoor farming research" : "Toba, Indonesia · Riset pertanian dalam ruang"}</p>
-          <h1 className="font-display mt-5 text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">{en ? "Albert Sagala — Lecturer at Institut Teknologi Del & Doctoral Researcher at ITB" : "Albert Sagala — Dosen Institut Teknologi Del & Peneliti Doktoral ITB"}</h1>
-          <p className="mt-6 max-w-xl text-base leading-7 text-cream/80 sm:text-lg">{en ? "Research focus: AI, Reinforcement Learning, and Data-Driven Control for Indoor Farming." : "Fokus riset: AI, Reinforcement Learning, dan Data-Driven Control untuk Indoor Farming."}</p>
+          <h1 className="font-display mt-5 text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">{en ? "AI-Driven Indoor Farming: From Sensor Data to Intelligent Control" : "Pertanian Indoor Berbasis AI: Dari Data Sensor ke Kendali Cerdas"}</h1>
+          <p className="mt-6 max-w-xl text-base leading-7 text-cream/80 sm:text-lg">{en ? "Exploring safe reinforcement learning, 3D microclimate mapping, VPD regulation, and energy-aware control in an instrumented vertical farm." : "Mengkaji reinforcement learning yang aman, pemetaan mikroklimat 3D, pengaturan VPD, dan kontrol hemat energi pada pertanian vertikal berinstrumen."}</p>
           <div className="mt-7 grid gap-3" aria-label={en ? "Three core research areas" : "Tiga fokus riset utama"}>
             {[
               { title: en ? "Safe Reinforcement Learning for climate control" : "Reinforcement Learning aman untuk kontrol iklim", description: en ? "DQN-based supervisory control and physical deployment." : "Kontrol supervisori berbasis DQN dan implementasi fisik.", href: en ? "/publications/" : "/id/publikasi/" },

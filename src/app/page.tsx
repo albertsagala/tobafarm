@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const articles = [
   {metric: "Services & Training", title: "IoT system reviews and practical workshops", summary: "Defined deliverables, pilot pricing, and documented speaking and training experience.", href: "/services/"},
-  {metric: "Speaking · 2024", title: "Albert Sagala at BSSN National Cyber Exercise #9", summary: "A retrospective on malware-stealer prevention and digital security awareness, with the original IT Del report.", href: "/activities/bssn-national-cyber-exercise/"},
+  {metric: "Speaking · 2024", title: "Cybersecurity lessons from the BSSN National Cyber Exercise #9", summary: "A retrospective on malware-stealer prevention and digital security awareness, with the original IT Del report.", href: "/activities/bssn-national-cyber-exercise/"},
   {metric: "Governance · 2024", title: "Information security governance in North Sumatra", summary: "A retrospective on the November 2024 FGD covering governance, SIEM, and the NIST Cybersecurity Framework.", href: "/activities/north-sumatra-information-security/"},
   { metric: "Space & time", title: "Mapping Space, Forecasting Time: Kriging and SARIMA for Indoor Farming", summary: "Kriging, IDW, RBF, ARIMA, and SARIMA: their roles, seasonal periods, and validation without data leakage.", href: "/articles/kriging-sarima-microclimate/" },
   { metric: "AI & farming", title: "Nine AI Trends Shaping Indoor Vertical Farming in 2026", summary: "A source-based overview of safe RL, digital twins, edge AI, and emerging research opportunities.", href: "/articles/ai-trends-indoor-vertical-farming-2026/" },
@@ -51,14 +51,6 @@ const articles = [
     summary: "A 48.1-hour observation exposed nighttime humidity limitations that average temperature alone did not reveal.",
     href: "/articles/vpd-container-farm/",
   },
-];
-
-const profiles = [
-  ["Academic website", "https://albert.tobasmartfarming.com"],
-  ["SINTA", "https://sinta.kemdiktisaintek.go.id/authors/profile/6034587"],
-  ["Institut Teknologi Del", "https://www.del.ac.id/?page_id=7078"],
-  ["LinkedIn", "https://www.linkedin.com/in/albert-sagala-47b963235"],
-  ["ResearchGate", "https://www.researchgate.net/profile/Albert-Sagala"],
 ];
 
 export default function Home() {
@@ -186,15 +178,6 @@ export default function Home() {
         </section>
 
         <AcademicOverview locale="en" />
-
-        <section id="team" className="scroll-mt-24 bg-white py-20 md:py-28">
-          <div className="mx-auto grid max-w-7xl gap-10 px-5 md:px-8 lg:grid-cols-[0.8fr_1.2fr]">
-            <div><Image src="/images/albert-sagala.webp" alt="Albert Sagala" width={900} height={900} sizes="(max-width: 1024px) 90vw, 360px" className="mb-7 w-full max-w-sm rounded-3xl object-cover" /><p className="text-xs uppercase tracking-[0.22em] text-teal-deep">Research lead</p><h2 className="font-display mt-3 text-4xl text-forest-deep md:text-5xl">Albert Sagala</h2><p className="mt-4 leading-7 text-muted">Associate Professor of Electrical Engineering, Institut Teknologi Del. PhD Candidate in Engineering Physics, Institut Teknologi Bandung.</p></div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {profiles.map(([label,href])=><a key={label} href={href} target="_blank" rel="noreferrer" className="rounded-2xl border border-[var(--line)] bg-cream-soft p-5 font-medium text-forest-deep transition hover:border-teal/50">{label}</a>)}
-            </div>
-          </div>
-        </section>
 
         <ResourceLinks locale="en" />
         <CollaborationPaths locale="en" />

@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 };
 
 const articles = [
+  {metric:"Equipment",title:"IoT & Smart Farming Equipment: 7 practical tutorials",summary:"ESP32, MQTT, Grafana, Jetson Nano, Cloudflare, microclimate sensors and hydroponic monitoring with honest equipment guidance.",href:"/equipment/"},
   {metric: "Services & Training", title: "IoT system reviews and practical workshops", summary: "Defined deliverables, pilot pricing, and documented speaking and training experience.", href: "/services/"},
   {metric: "Speaking · 2024", title: "Cybersecurity lessons from the BSSN National Cyber Exercise #9", summary: "A retrospective on malware-stealer prevention and digital security awareness, with the original IT Del report.", href: "/activities/bssn-national-cyber-exercise/"},
   {metric: "Governance · 2024", title: "Information security governance in North Sumatra", summary: "A retrospective on the November 2024 FGD covering governance, SIEM, and the NIST Cybersecurity Framework.", href: "/activities/north-sumatra-information-security/"},

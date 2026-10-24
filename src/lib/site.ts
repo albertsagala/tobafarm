@@ -15,7 +15,7 @@ export const navEn = [
   { href: "/#research-stories", label: "Research" },
   { href: "/#facility", label: "Facility" },
   { href: "/#articles", label: "Insights" },
-  { href: "/#team", label: "People" },
+  { href: "/#projects", label: "Research Areas" },
   { href: "/#resources", label: "Resources" },
   { href: "/services/", label: "Services & Training" },
 ] as const;
@@ -25,7 +25,7 @@ export const navId = [
   { href: "/id/#research-stories", label: "Riset" },
   { href: "/id/#facility", label: "Fasilitas" },
   { href: "/id/#articles", label: "Artikel" },
-  { href: "/id/#team", label: "Tim" },
+  { href: "/id/#projects", label: "Bidang Riset" },
   { href: "/id/#resources", label: "Sumber Belajar" },
   { href: "/id/layanan/", label: "Layanan & Pelatihan" },
 ] as const;

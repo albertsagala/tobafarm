@@ -1,6 +1,6 @@
 import Link from "next/link";
 const snippets = {
-esp: `// Arduino IDE: ESP32 + Adafruit SHT31 + PubSubClient
+esp: String.raw`// Arduino IDE: ESP32 + Adafruit SHT31 + PubSubClient
 #include <WiFi.h>
 #include <Wire.h>
 #include <Adafruit_SHT31.h>
@@ -55,12 +55,12 @@ password_file /etc/mosquitto/passwd
 # Restrict port 1883 to trusted LAN using the host firewall.
 sudo systemctl restart mosquitto
 mosquitto_sub -h 127.0.0.1 -u sensor01 -P 'PASSWORD' -t 'farm/telemetry/#' -v`,
-telegraf: `# Example for Telegraf + InfluxDB 2.x. Adjust to your versions.
+telegraf: String.raw`# Example for Telegraf + InfluxDB 2.x. Adjust to your versions.
 [[inputs.mqtt_consumer]]
   servers = ["tcp://127.0.0.1:1883"]
   topics = ["farm/telemetry/+"]
   username = "sensor01"
-  password = "${MQTT_PASSWORD}"
+  password = "\${MQTT_PASSWORD}"
   data_format = "json"
   name_override = "climate"
   tag_keys = ["node_id"]
@@ -69,7 +69,7 @@ telegraf: `# Example for Telegraf + InfluxDB 2.x. Adjust to your versions.
   json_string_fields = ["node_id"]
 [[outputs.influxdb_v2]]
   urls = ["http://127.0.0.1:8086"]
-  token = "${INFLUX_TOKEN}"
+  token = "\${INFLUX_TOKEN}"
   organization = "farm"
   bucket = "climate"`,
 flux: `from(bucket: "climate")

@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --forest: #143528;
-  --forest-deep: #0c241c;
-  --forest-mid: #1e4a38;
-  --navy: #0b1524;
-  --navy-mid: #132033;
-  --cream: #f4f0e8;
-  --cream-soft: #fbf8f3;
-  --teal: #3d9b8f;
-  --teal-bright: #5eb8ac;
-  --teal-deep: #2b7268;
+  --forest: #a90f1d;
+  --forest-deep: #1b1b1d;
+  --forest-mid: #7b111a;
+  --navy: #171719;
+  --navy-mid: #29292c;
+  --cream: #f2f2f2;
+  --cream-soft: #f8f8f8;
+  --teal: #b71928;
+  --teal-bright: #ff4352;
+  --teal-deep: #ad1523;
   --amber: #8a5a12;
-  --ink: #1a2330;
-  --muted: #5c6774;
-  --line: rgba(20, 53, 40, 0.12);
+  --ink: #202024;
+  --muted: #59595e;
+  --line: rgba(32, 32, 36, 0.15);
 }
 
 @theme inline {
@@ -113,3 +113,8 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Editorial research-portal styling: sharper headlines, accent rules and compact article panels. */
+#articles article { border-radius: 0; border-top: 3px solid var(--teal); }
+#research-stories article { border-radius: 0; }
+#articles article a:hover, #research-stories article a:hover { color: var(--teal-deep); }

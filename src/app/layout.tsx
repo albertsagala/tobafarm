@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/JsonLd";
+import { AnalyticsConsent } from "@/components/AnalyticsConsent";
 import { site } from "@/lib/site";
 const display = Cormorant_Garamond({ variable: "--font-display", subsets: ["latin"], weight: ["500", "600", "700"] });
 const body = Outfit({ variable: "--font-body", subsets: ["latin"], weight: ["300", "400", "500", "600"] });
@@ -15,5 +16,5 @@ export const metadata: Metadata = {
  robots: { index: true, follow: true }, icons: { icon: "/favicon.svg" },
 };
 export default function RootLayout({ children }: LayoutProps<"/">) {
- return <html lang="en" className={`${display.variable} ${body.variable} h-full antialiased`}><body className="flex min-h-full flex-col bg-cream-soft text-ink"><JsonLd /><a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-cream focus:px-4 focus:py-2 focus:text-forest">Skip to content</a>{children}</body></html>;
+ return <html lang="en" className={`${display.variable} ${body.variable} h-full antialiased`}><body className="flex min-h-full flex-col bg-cream-soft text-ink"><JsonLd /><AnalyticsConsent /><a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-cream focus:px-4 focus:py-2 focus:text-forest">Skip to content</a>{children}</body></html>;
 }

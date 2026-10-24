@@ -31,7 +31,7 @@ export function Footer({ locale = "en" }: { locale?: "en" | "id" }) {
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/10"><div className="mx-auto max-w-7xl px-5 py-6 text-xs text-cream/70 md:px-8">© {new Date().getFullYear()} {site.name}</div></div>
+      <div className="border-t border-white/10"><div className="mx-auto max-w-7xl px-5 py-6 text-xs text-cream/70 md:px-8">© {new Date().getFullYear()} {site.name} <span className="ml-4 inline-flex flex-wrap gap-4"><a href="/equipment/" className="underline">IoT Equipment</a><a href="/privacy-policy/" className="underline">Privacy</a><a href="/affiliate-disclosure/" className="underline">Affiliate Disclosure</a></span></div></div>
     </footer>
   );
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Cloud, Database, Gauge, Radio, Server, Settings2, ShieldCheck } from "lucide-react";
 import { ArticleJsonLd } from "@/components/ArticleJsonLd";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
@@ -11,15 +12,15 @@ const paths = { en: "/articles/from-iot-to-edge-cloud/", id: "/id/artikel/dari-i
 
 const copy = {
  en: {
-  eyebrow:"IoT · Edge computing · Research infrastructure",
+  eyebrow:"Technology / IoT & Edge Computing · Research infrastructure",
   title:"From IoT to Edge-to-Cloud: A Resilient Architecture for Container Farming",
   dek:"Twenty-seven sensor nodes feed a Jetson Nano and a local server. Climate decisions remain local, while Cloudflare Tunnel makes dashboards available online without turning internet access into a control dependency.",
   date:"14 October 2026", back:"Back to articles", flow:"The operational data path",
   flowIntro:"The important design choice is not simply connecting devices to the internet. It is deciding which functions must survive when the internet does not.",
   stages:[
-   ["1","27 sensor nodes","Measure spatial temperature and humidity across the container farm."],
+   ["1","27 ESP32 sensor nodes","Measure spatial temperature and humidity across the container farm."],
    ["2","Jetson Nano at the edge","Receives observations and supplies fresh local data to the control logic."],
-   ["3","Local storage & dashboard","Retains sensor histories, actuator states, and operational traces for analysis."],
+   ["3","MQTT · Telegraf · InfluxDB · Grafana","Retains sensor histories, actuator states, and operational traces for analysis."],
    ["4","Local climate control","Commands the AC, humidifier, and CO₂ solenoid without waiting for a cloud round trip."],
    ["5","Cloudflare Tunnel","Publishes the monitoring service through an outbound tunnel for authorized remote access."],
   ],
@@ -38,15 +39,15 @@ const copy = {
   cf:"Cloudflare Tunnel documentation", nv:"NVIDIA JetPack SDK documentation",
  },
  id: {
-  eyebrow:"IoT · Edge computing · Infrastruktur riset",
+  eyebrow:"Technology / IoT & Edge Computing · Infrastruktur riset",
   title:"Dari IoT ke Edge-to-Cloud: Arsitektur Tangguh untuk Container Farm",
   dek:"Dua puluh tujuh node sensor mengirimkan data ke Jetson Nano dan server lokal. Keputusan iklim tetap berjalan di edge, sedangkan Cloudflare Tunnel membuat dashboard dapat diakses secara daring tanpa menjadikan internet sebagai syarat kontrol.",
   date:"14 Oktober 2026", back:"Kembali ke artikel", flow:"Alur data operasional",
   flowIntro:"Keputusan desain terpenting bukan sekadar menghubungkan perangkat ke internet, melainkan menentukan fungsi apa yang harus tetap hidup ketika internet terputus.",
   stages:[
-   ["1","27 node sensor","Mengukur suhu dan kelembapan secara spasial di seluruh container farm."],
+   ["1","27 node sensor ESP32","Mengukur suhu dan kelembapan secara spasial di seluruh container farm."],
    ["2","Jetson Nano di edge","Menerima observasi dan menyediakan data lokal terbaru bagi logika kontrol."],
-   ["3","Penyimpanan & dashboard lokal","Merekam histori sensor, status aktuator, dan jejak operasi untuk analisis."],
+   ["3","MQTT · Telegraf · InfluxDB · Grafana","Merekam histori sensor, status aktuator, dan jejak operasi untuk analisis."],
    ["4","Kontrol iklim lokal","Mengendalikan AC, humidifier, dan solenoid CO₂ tanpa menunggu respons cloud."],
    ["5","Cloudflare Tunnel","Mempublikasikan layanan monitoring melalui tunnel keluar untuk akses jarak jauh yang terotorisasi."],
   ],
@@ -74,6 +75,19 @@ export function EdgeCloudArticle({locale}:{locale:Locale}) {
   <main id="main"><article>
    <section className="bg-navy text-cream"><div className="mx-auto max-w-5xl px-5 py-16 md:px-8 md:py-24"><p className="text-xs uppercase tracking-[0.22em] text-teal-bright">{t.eyebrow} · {t.date}</p><h1 className="font-display mt-5 max-w-4xl text-4xl leading-tight md:text-6xl">{t.title}</h1><p className="mt-6 max-w-3xl text-lg leading-8 text-cream/75">{t.dek}</p><p className="mt-7 text-sm text-cream/60">Albert Sagala · Toba Smart Farming</p></div></section>
    <section className="border-b border-[var(--line)] bg-white"><div className="mx-auto max-w-6xl px-5 py-16 md:px-8"><p className="text-xs uppercase tracking-[0.22em] text-teal-deep">{t.flow}</p><p className="mt-3 max-w-3xl text-lg leading-8 text-muted">{t.flowIntro}</p><div className="mt-9 grid gap-4 md:grid-cols-5">{t.stages.map((stage,i)=>{const Icon=icons[i];return <div key={stage[0]} className="relative rounded-2xl border border-[var(--line)] bg-cream-soft p-5"><span className="text-xs font-semibold text-teal-deep">{stage[0].padStart(2,"0")}</span><Icon className="mt-6 h-6 w-6 text-forest" aria-hidden/><h2 className="font-display mt-4 text-xl text-forest-deep">{stage[1]}</h2><p className="mt-2 text-sm leading-6 text-muted">{stage[2]}</p></div>})}</div></div></section>
+   <section className="bg-cream-soft"><div className="mx-auto max-w-6xl px-5 py-14 md:px-8">
+    <h2 className="font-display text-3xl text-forest-deep">{locale==="id"?"Dokumentasi nyata: fasilitas dan monitoring":"Real installation: facility and monitoring"}</h2>
+    <p className="mt-3 max-w-3xl leading-7 text-muted">{locale==="id"?"Foto fasilitas dan dashboard berikut berasal dari dokumentasi sistem indoor farming, bukan ilustrasi stok.":"The facility photographs and dashboard below document the actual indoor-farming system, not stock illustrations."}</p>
+    <div className="mt-7 grid gap-5 md:grid-cols-2">
+     {([{src:"/images/gallery/container-overview.jpg",alt:"Interior kontainer dengan instalasi sensor dan rak tanam",caption:locale==="id"?"Interior kontainer dan instalasi sensor":"Container interior and sensing installation",w:1280,h:960},{src:"/images/gallery/pakchoi-racks.jpg",alt:"Pakchoi ditanam pada rak hidroponik bertingkat",caption:locale==="id"?"Pakchoi pada rak hidroponik":"Pakchoi on hydroponic racks",w:960,h:1280},{src:"/images/gallery/grafana-july-2026.png",alt:"Dashboard Grafana pengukuran iklim dan status aktuator",caption:locale==="id"?"Dashboard Grafana, Juli 2026":"Grafana monitoring, July 2026",w:1896,h:1350}] as const).map(photo=><figure key={photo.src} className="overflow-hidden rounded-2xl border border-[var(--line)] bg-white"><Image src={photo.src} alt={photo.alt} width={photo.w} height={photo.h} className="aspect-[16/9] w-full object-cover"/><figcaption className="px-5 py-4 text-sm text-muted">{photo.caption}</figcaption></figure>)}
+    </div>
+   </div></section>
+   <section className="bg-white"><div className="mx-auto max-w-4xl px-5 py-12 md:px-8">
+    <h2 className="font-display text-3xl text-forest-deep">{locale==="id"?"Contoh sederhana: rule-based control":"Practical example: rule-based control"}</h2>
+    <p className="mt-4 leading-8 text-muted">{locale==="id"?"ESP32 mengirim suhu melalui Wi-Fi dan MQTT. Setelah data tersedia pada gateway, Jetson Nano dapat mengevaluasi aturan: jika suhu di atas 24°C, perintahkan AC ON; jika di bawah 22°C, perintahkan AC OFF; di antara kedua ambang tersebut, pertahankan status sebelumnya (hysteresis). Perintah aktuator dikirim kembali melalui MQTT. Ini contoh konsep kontrol lokal, bukan perintah langsung dari Cloudflare.":"ESP32 publishes temperature through Wi-Fi and MQTT. After the gateway receives it, Jetson Nano can evaluate a simple rule: above 24°C command AC ON; below 22°C command AC OFF; between thresholds retain the previous state (hysteresis). Actuator commands return through MQTT. Cloudflare is an access layer, not the control algorithm."}</p>
+    <pre className="mt-5 overflow-x-auto rounded-2xl bg-navy p-5 text-sm leading-7 text-cream"><code>{'if (temperature > 24) ac = "ON";\\nelse if (temperature < 22) ac = "OFF";\\nelse ac = previous_state;' .replaceAll('\\n','\n')}</code></pre>
+    <p className="mt-5 leading-8 text-muted">{locale==="id"?"Untuk kendali dari browser/cloud, antarmuka hanya boleh mengirim setpoint atau permintaan supervisi yang terautentikasi. Edge tetap memeriksa batas aman, kondisi sensor, serta interlock sebelum menggerakkan aktuator. Kemampuan akses dashboard melalui Cloudflare telah didokumentasikan; fitur remote actuation tidak diklaim telah diuji.":"For browser/cloud supervision, only authenticated setpoints or requests should be accepted. The edge validates safe limits, sensor health, and interlocks before acting. Cloudflare dashboard access is documented; remotely actuating equipment is not claimed as a verified deployment."}</p>
+   </div></section>
    <div className="mx-auto max-w-4xl px-5 py-16 md:px-8 md:py-20">{t.sections.map(([title,paras],i)=><section key={title} className={i?"mt-14":""}><h2 className="font-display text-3xl text-forest-deep md:text-4xl">{title}</h2><div className="mt-5 space-y-5 text-[1.05rem] leading-8 text-muted">{paras.map(p=><p key={p}>{p}</p>)}</div></section>)}
     <aside className="mt-14 rounded-3xl bg-forest-deep p-7 text-cream md:p-9"><Gauge className="h-7 w-7 text-teal-bright" aria-hidden/><p className="font-display mt-5 text-3xl leading-snug">{t.takeaway}</p></aside>
     <section className="mt-14"><div className="flex items-center gap-3"><ShieldCheck className="h-7 w-7 text-teal-deep"/><h2 className="font-display text-3xl text-forest-deep">{t.checklist}</h2></div><div className="mt-6 grid gap-3 sm:grid-cols-2">{t.checks.map(x=><div key={x} className="flex gap-3 rounded-2xl border border-[var(--line)] bg-white p-4"><span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-teal-deep"/><p className="leading-6 text-muted">{x}</p></div>)}</div></section>

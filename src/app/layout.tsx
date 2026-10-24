@@ -13,6 +13,7 @@ export const metadata: Metadata = {
  alternates: { canonical: "/", languages: { en: "/", id: "/id/", "x-default": "/" } },
  openGraph: { type: "website", url: site.url, siteName: site.name, title: `${site.name} — ${site.tagline}`, description: site.description, locale: "en_US", alternateLocale: ["id_ID"], images: [{ url: "/og.jpg", width: 1280, height: 720, alt: `${site.name} — ${site.tagline}` }] },
  twitter: { card: "summary_large_image", title: `${site.name} — ${site.tagline}`, description: site.description, images: ["/og.jpg"] },
+ verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } : undefined,
  robots: { index: true, follow: true }, icons: { icon: "/favicon.svg" },
 };
 export default function RootLayout({ children }: LayoutProps<"/">) {

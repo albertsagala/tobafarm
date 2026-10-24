@@ -10,7 +10,6 @@ import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Research } from "@/components/Research";
-import { Team } from "@/components/Team";
 
 export const metadata: Metadata = {
   title: "Riset Pertanian dalam Ruang Berbasis Kontainer",
@@ -32,7 +31,6 @@ export default function Home() {
         <Articles />
         <Research />
         <AcademicOverview locale="id" />
-        <Team />
         <ResourceLinks locale="id" />
         <CollaborationPaths locale="id" />
       </main>

@@ -1,6 +1,5 @@
 import { LanguageSwitch } from "@/components/LanguageSwitch";
 import { Logo } from "@/components/Logo";
-import { researchLead } from "@/lib/content";
 import { isValidEmail, navEn, navId, site } from "@/lib/site";
 
 export function Footer({ locale = "en" }: { locale?: "en" | "id" }) {
@@ -28,7 +27,7 @@ export function Footer({ locale = "en" }: { locale?: "en" | "id" }) {
           <p className="text-xs uppercase tracking-[0.22em] text-teal-bright">{locale === "en" ? "Contact" : "Kontak"}</p>
           <ul className="mt-4 space-y-2 text-sm text-cream/85">
             {email ? <li><a href={`mailto:${email}`} className="[overflow-wrap:anywhere] transition hover:text-teal-bright">{email}</a></li> : null}
-            <li>{locale === "en" ? "Research lead" : researchLead.role}: {researchLead.name}</li>
+            <li>{locale === "en" ? "Research, experiments & collaboration" : "Riset, eksperimen & kolaborasi"}</li>
           </ul>
         </div>
       </div>

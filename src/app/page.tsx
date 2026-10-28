@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 };
 
 const articles = [
+  {metric:"28 Oktober 2026",title:"Bangkit Penelitian Indonesia: Semangat Sumpah Pemuda",summary:"Refleksi Kangabet tentang pemuda, integritas akademik, kemandirian ilmu pengetahuan, dan inovasi yang berdampak.",href:"/articles/bangkit-penelitian-indonesia-sumpah-pemuda-2026/"},
   {metric:"Equipment",title:"IoT & Smart Farming Equipment: 7 practical tutorials",summary:"ESP32, MQTT, Grafana, Jetson Nano, Cloudflare, microclimate sensors and hydroponic monitoring with honest equipment guidance.",href:"/equipment/"},
   {metric: "Services & Training", title: "IoT system reviews and practical workshops", summary: "Defined deliverables, pilot pricing, and documented speaking and training experience.", href: "/services/"},
   {metric: "Speaking · 2024", title: "Cybersecurity lessons from the BSSN National Cyber Exercise #9", summary: "A retrospective on malware-stealer prevention and digital security awareness, with the original IT Del report.", href: "/activities/bssn-national-cyber-exercise/"},

@@ -16,5 +16,6 @@ export async function onRequestPost({request,env}:Ctx):Promise<Response>{
  if(!row)return reply({error:"Gagal menyimpan sesi."},500);
  await env.QUIZ_DB.prepare("INSERT INTO quiz_audit (quiz,student_id,event,ip,user_agent,at) VALUES (?,?,?,?,?,datetime('now'))").bind(quiz,studentId,row.status==="completed"?"repeat_denied":"access",ip,ua).run();
  if(row.status==="completed")return reply({error:"Percobaan untuk kuis ini sudah dikumpulkan. Tidak diperbolehkan mengulang.",status:"completed",startedAt:row.started_at,submittedAt:row.submitted_at,score:row.score,total:row.total,startIp:row.start_ip,submitIp:row.submit_ip},409);
- return reply({status:"in_progress",quiz,studentId,name:registration.student_name,startedAt:row.started_at,ip:row.start_ip,questions:bankPublic(quiz),total:banks[quiz].length});
+ const existing=await env.QUIZ_DB.prepare("SELECT question_index,answer_index FROM quiz_current_answers WHERE quiz=? AND student_id=?").bind(quiz,studentId).all<{question_index:number;answer_index:number}>();
+ return reply({status:"in_progress",quiz,studentId,name:registration.student_name,startedAt:row.started_at,ip:row.start_ip,questions:bankPublic(quiz),total:banks[quiz].length,answers:Object.fromEntries(existing.results.map(x=>[x.question_index,x.answer_index]))});
 }

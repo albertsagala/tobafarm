@@ -9,6 +9,8 @@ export const internetworkingLectures: TeachingMaterial[] = [
 ];
 
 export const internetworkingLabs: TeachingMaterial[] = [
+  { code: "Q02", titleEn: "EIGRP Routing Protocols — 30 Practice Questions", titleId: "Latihan 30 Soal Routing Protocol EIGRP", topicEn: "Interactive intermediate-level quiz: DUAL, successor, metrics, neighbor adjacency, and troubleshooting", topicId: "Kuis tingkat sedang–menengah: DUAL, successor, metrik, adjacency, dan troubleshooting", link: "/id/materi-ajar/kuis-eigrp/" },
+
   { code: "Q01", titleEn: "OSPF Routing Protocols — 30 Practice Questions", titleId: "Latihan 30 Soal Routing Protocol OSPF", topicEn: "Interactive intermediate-level MCQ quiz with automatic scoring and answer explanations", topicId: "Kuis pilihan ganda tingkat sedang–menengah, nilai otomatis, dan pembahasan", link: "/id/materi-ajar/kuis-ospf/" },
   { code: "P01", titleEn: "Network Fundamentals and Packet Analysis", titleId: "Dasar Jaringan dan Analisis Paket", topicEn: "Introductory Packet Tracer and Wireshark laboratory", topicId: "Praktikum pengantar Packet Tracer dan Wireshark", source: "/materials/labs/internetworking/Modul01_Antar_Jaringan_Overleaf.zip" },
   { code: "P02", titleEn: "IP Addressing and Subnetting Lab", titleId: "Praktikum IP Addressing dan Subnetting", topicEn: "Address planning and connectivity verification", topicId: "Perencanaan alamat dan verifikasi konektivitas", source: "/materials/labs/internetworking/Modul02_Antar_Jaringan_Overleaf.zip" },

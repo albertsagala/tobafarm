@@ -26,7 +26,7 @@ Audit records include IP (from Cloudflare's CF-Connecting-IP), user-agent, acces
    `npx wrangler d1 execute tobafarm_quizzes --remote --file=private/semester-2026-ospf/ospf-roster.sql`.
    **Never commit the generated SQL or codes.** Hand each access code privately to the matching student.
 8. Test with instructor-controlled dummy identity before opening to students: start, select answers, refresh and resume, submit, and verify another start and submission are rejected.
-9. Retrieve logs using a trusted admin terminal, NOT browser JavaScript:
+9. Open the instructor dashboard at `/id/materi-ajar/log-kuis/` and enter `QUIZ_ADMIN_TOKEN` to inspect attempts, timestamps, IP addresses, access events, answer-change history, and CSV exports. The secret stays in tab memory. For CLI access, use a trusted terminal:
    `curl -H "Authorization: Bearer $QUIZ_ADMIN_TOKEN" "https://www.tobasmartfarming.com/api/quiz/admin/logs?quiz=ospf"`
    This returns up to 500 attempt rows and 1,000 audit rows. For full logs query D1 directly, e.g. `SELECT * FROM quiz_answer_log ORDER BY id DESC`.
 

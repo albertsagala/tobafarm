@@ -1,4 +1,4 @@
-export type TeachingMaterial = { code: string; titleEn: string; titleId: string; topicEn: string; topicId: string; pdf?: string; source?: string; link?: string };
+export type TeachingMaterial = { code: string; titleEn: string; titleId: string; topicEn: string; topicId: string; pdf?: string; source?: string; link?: string; kind?: "lesson" | "quiz" };
 
 export const internetworkingLectures: TeachingMaterial[] = [
   { code: "M01", titleEn: "Introduction to Internetworking and TCP/IP", titleId: "Pengantar Antar Jaringan dan TCP/IP", topicEn: "Layered architecture, encapsulation, and packet flow", topicId: "Arsitektur berlapis, enkapsulasi, dan aliran paket", pdf: "/materials/lectures/internetworking/13S3121_M01_Introduction_Internetworking_TCPIP.pdf" },
@@ -21,6 +21,8 @@ export const internetworkingLabs: TeachingMaterial[] = [
 ];
 
 export const cybersecurityLectures: TeachingMaterial[] = [
+  { code: "M09", titleEn: "Incident Response and Playbooks — Week 9", titleId: "Respons Insiden dan Playbook — Minggu 9", topicEn: "Complete online lesson: preparation, detection, analysis, containment, eradication, recovery, evidence, tabletop and lessons learned", topicId: "Materi lengkap daring: persiapan, deteksi, analisis, containment, eradication, recovery, bukti, tabletop exercise dan lessons learned", link: "/id/materi-ajar/respons-insiden-playbook/", kind: "lesson" },
+
   { code: "M01", titleEn: "Cybersecurity Foundations and the CIA Triad", titleId: "Pengantar Keamanan Siber dan CIA Triad", topicEn: "Security objectives, assets, threats, and risk", topicId: "Tujuan keamanan, aset, ancaman, dan risiko", pdf: "/materials/lectures/cybersecurity/13S4121_M01_Pengantar_Keamanan_Siber_CIA_Triad_Beamer.pdf", source: "/materials/lectures/cybersecurity/13S4121_M01_Overleaf_Keamanan_Siber.zip" },
   { code: "M02", titleEn: "Threats, Attack Vectors, and Human Factors", titleId: "Ancaman, Vektor Serangan, dan Faktor Manusia", topicEn: "Attack surfaces, social engineering, and defensive thinking", topicId: "Attack surface, social engineering, dan pola pikir defensif", pdf: "/materials/lectures/cybersecurity/13S4121_M02_Ancaman_Vektor_Serangan_Faktor_Manusia_Beamer.pdf", source: "/materials/lectures/cybersecurity/13S4121_M02_Overleaf_Keamanan_Siber.zip" },
   { code: "M03", titleEn: "Vulnerability, Patching, and System Hardening", titleId: "Kerentanan, Patching, dan System Hardening", topicEn: "Vulnerability lifecycle and practical hardening controls", topicId: "Siklus kerentanan dan kontrol hardening praktis", pdf: "/materials/lectures/cybersecurity/13S4121_M03_Kerentanan_Patching_System_Hardening_Beamer.pdf", source: "/materials/lectures/cybersecurity/13S4121_M03_Overleaf_Keamanan_Siber.zip" },

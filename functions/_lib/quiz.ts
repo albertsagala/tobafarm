@@ -1,3 +1,6 @@
+// Minimal D1 structural types; avoids requiring @cloudflare/workers-types in the Next.js static build.
+type D1Statement = { bind(...args: unknown[]): D1Statement; first<T=unknown>():Promise<T|null>; run():Promise<unknown>; all<T=unknown>():Promise<{results:T[]}> };
+type D1Database = { prepare(query:string):D1Statement };
 import ospf from "./ospf-bank.json";
 import eigrp from "./eigrp-bank.json";
 import cybersecurity from "./cybersecurity-bank.json";

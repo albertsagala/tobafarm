@@ -34,3 +34,21 @@ CREATE TABLE IF NOT EXISTS quiz_audit (
  at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_quiz_audit_quiz_at ON quiz_audit(quiz,at);
+
+CREATE TABLE IF NOT EXISTS quiz_answer_log (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ quiz TEXT NOT NULL,
+ student_id TEXT NOT NULL,
+ question_index INTEGER NOT NULL,
+ answer_index INTEGER NOT NULL,
+ ip TEXT NOT NULL,
+ at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_quiz_answer_log ON quiz_answer_log(quiz,student_id,at);
+CREATE TABLE IF NOT EXISTS quiz_current_answers (
+ quiz TEXT NOT NULL,
+ student_id TEXT NOT NULL,
+ question_index INTEGER NOT NULL,
+ answer_index INTEGER NOT NULL,
+ PRIMARY KEY(quiz,student_id,question_index)
+);

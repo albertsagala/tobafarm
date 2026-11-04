@@ -1,4 +1,4 @@
-export type TeachingMaterial = { code: string; titleEn: string; titleId: string; topicEn: string; topicId: string; pdf?: string; source?: string };
+export type TeachingMaterial = { code: string; titleEn: string; titleId: string; topicEn: string; topicId: string; pdf?: string; source?: string; link?: string };
 
 export const internetworkingLectures: TeachingMaterial[] = [
   { code: "M01", titleEn: "Introduction to Internetworking and TCP/IP", titleId: "Pengantar Antar Jaringan dan TCP/IP", topicEn: "Layered architecture, encapsulation, and packet flow", topicId: "Arsitektur berlapis, enkapsulasi, dan aliran paket", pdf: "/materials/lectures/internetworking/13S3121_M01_Introduction_Internetworking_TCPIP.pdf" },
@@ -9,6 +9,7 @@ export const internetworkingLectures: TeachingMaterial[] = [
 ];
 
 export const internetworkingLabs: TeachingMaterial[] = [
+  { code: "Q01", titleEn: "OSPF Routing Protocols — 30 Practice Questions", titleId: "Latihan 30 Soal Routing Protocol OSPF", topicEn: "Interactive intermediate-level MCQ quiz with automatic scoring and answer explanations", topicId: "Kuis pilihan ganda tingkat sedang–menengah, nilai otomatis, dan pembahasan", link: "/id/materi-ajar/kuis-ospf/" },
   { code: "P01", titleEn: "Network Fundamentals and Packet Analysis", titleId: "Dasar Jaringan dan Analisis Paket", topicEn: "Introductory Packet Tracer and Wireshark laboratory", topicId: "Praktikum pengantar Packet Tracer dan Wireshark", source: "/materials/labs/internetworking/Modul01_Antar_Jaringan_Overleaf.zip" },
   { code: "P02", titleEn: "IP Addressing and Subnetting Lab", titleId: "Praktikum IP Addressing dan Subnetting", topicEn: "Address planning and connectivity verification", topicId: "Perencanaan alamat dan verifikasi konektivitas", source: "/materials/labs/internetworking/Modul02_Antar_Jaringan_Overleaf.zip" },
   { code: "P03", titleEn: "Packet Flow and Network Services", titleId: "Packet Flow dan Layanan Jaringan", topicEn: "ARP, ICMP, DHCP, DNS, and NAT observation", topicId: "Observasi ARP, ICMP, DHCP, DNS, dan NAT", source: "/materials/labs/internetworking/Modul03_Antar_Jaringan_Overleaf.zip" },

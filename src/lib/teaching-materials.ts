@@ -28,6 +28,8 @@ export const cybersecurityLectures: TeachingMaterial[] = [
 ];
 
 export const cybersecurityLabs: TeachingMaterial[] = [
+  { code: "Q09", titleEn: "Incident Response and Playbooks — Week 9 (20 Questions)", titleId: "Kuis Respons Insiden dan Playbook — Minggu 9 (20 Soal)", topicEn: "Incident lifecycle, severity, triage, containment, evidence, recovery, tabletop and lessons learned", topicId: "Siklus respons insiden, severity, triage, containment, bukti, recovery, simulasi tabletop dan lessons learned", link: "/id/materi-ajar/kuis-respons-insiden/" },
+
   { code: "Q01", titleEn: "Cybersecurity & Network Security Quiz — Weeks 1–7 (40 Questions)", titleId: "Kuis Keamanan Siber dan Keamanan Jaringan — Week 1–7 (40 Soal)", topicEn: "CIA Triad, social engineering, vulnerabilities, cryptography, access control, network defense, and incident response", topicId: "CIA Triad, social engineering, kerentanan, kriptografi, kontrol akses, keamanan jaringan, dan respons insiden", link: "/id/materi-ajar/kuis-keamanan-siber/" },
 
   { code: "L01", titleEn: "External Reconnaissance", titleId: "External Reconnaissance", topicEn: "Authorized information gathering and evidence documentation", topicId: "Pengumpulan informasi berizin dan dokumentasi bukti", pdf: "/materials/labs/cybersecurity/Modul_01_External_Reconnaissance.pdf" },

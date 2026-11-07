@@ -1,3 +1,4 @@
+import { LatestArticles } from "@/components/LatestArticles";
 import { ClimateMetrics } from "@/components/ClimateMetrics";
 import { AcademicOverview } from "@/components/AcademicOverview";
 import type { Metadata } from "next";
@@ -61,6 +62,7 @@ export default function Home() {
       <Header locale="en" />
       <main id="main">
         <Hero locale="en" />
+        <LatestArticles locale="en" />
         <ClimateMetrics locale="en" />
         <ResearchStories locale="en" />
 

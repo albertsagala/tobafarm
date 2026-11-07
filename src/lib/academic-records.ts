@@ -351,6 +351,10 @@ export const publicationGroups: {
   },
 ];
 
+// Reserved for verified scholarly works outside journal and proceedings categories.
+// Keep existing publication records unchanged; add entries only after source verification.
+export const otherScholarlyPublications: Paper[] = [];
+
 export const communityServices: Activity[] = [
   {
     year: "2026",

@@ -43,11 +43,11 @@ const references = [
   { label: "NIST SP 800-86 — Guide to Integrating Forensic Techniques into Incident Response", url: "https://doi.org/10.6028/NIST.SP.800-86" }
 ];
 export default function Page() {
-  return <div className="min-h-screen bg-cream-soft"><Header locale="id" /><main id="main"><article className="mx-auto max-w-3xl px-5 py-16 md:py-24">
+  return <div className="min-h-screen bg-cream-soft"><Header locale="id" /><main id="main"><article className="mx-auto max-w-3xl px-5 pt-24 pb-16 sm:pt-28 md:py-24">
     <Link href="/id/#articles" className="text-sm font-medium text-teal-deep">← Kembali ke artikel</Link>
     <p className="mt-10 text-xs font-semibold uppercase tracking-[0.18em] text-teal-deep">Keamanan Siber · Telekomunikasi · Forensik Digital</p>
     <h1 className="font-display mt-4 text-4xl leading-tight text-forest-deep md:text-6xl">{title}</h1>
-    <p className="mt-6 text-xl leading-8 text-muted">Bagaimana intersepsi komunikasi dikelola secara terotorisasi, dan bagaimana penyalahgunaan akses dapat ditelusuri melalui kontrol keamanan serta audit digital?</p>
+    <p className="mt-6 text-lg leading-8 text-muted md:text-xl">Bagaimana intersepsi komunikasi dikelola secara terotorisasi, dan bagaimana penyalahgunaan akses dapat ditelusuri melalui kontrol keamanan serta audit digital?</p>
     <p className="mt-5 text-sm text-muted">7 November 2026 · Albert Sagala · Artikel teknis berbasis standar</p>
     <div className="mt-12 space-y-7 text-lg leading-8 text-ink">
       {sections.map(section => <section key={section.title} className="pt-4"><h2 className="font-display mb-5 text-3xl text-forest-deep md:text-4xl">{section.title}</h2><div className="space-y-5">{section.paragraphs.map((p,i)=><p key={i}>{p}</p>)}</div></section>)}

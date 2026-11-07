@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Passengers: Ketika Otomatisasi Gagal, Siapa yang Mengambil Kendali?",
   description: "Refleksi film Passengers tentang fail-safe, fault-tolerant control, AI, dan keselamatan sistem pertanian vertikal.",
   alternates: { canonical: "/id/artikel/passengers-otomatisasi-fail-safe/" },
-  openGraph: { type: "article", title: "Passengers: Ketika Otomatisasi Gagal, Siapa yang Mengambil Kendali?", publishedTime: "2026-11-07", authors: ["Albert Sagala"] },
+  openGraph: { type: "article", title: "Passengers: Ketika Otomatisasi Gagal, Siapa yang Mengambil Kendali?", publishedTime: "2026-11-07", authors: ["Albert Sagala"], images: ["/images/passengers-fail-safe.svg"] },
 };
 
 const sections = [
@@ -49,6 +49,7 @@ export default function Page() {
     <h1 className="font-display mt-4 text-4xl leading-tight text-forest-deep md:text-6xl">Passengers: Ketika Otomatisasi Gagal, Siapa yang Mengambil Kendali?</h1>
     <p className="mt-6 text-xl leading-8 text-muted">Dari kapal antarbintang Avalon hingga pertanian vertikal, teknologi cerdas bukan hanya mampu bekerja sendiri, tetapi juga dirancang agar tetap aman ketika sesuatu berjalan di luar rencana.</p>
     <p className="mt-5 text-sm text-muted">7 November 2026 · Albert Sagala · Mengandung spoiler film Passengers (2016)</p>
+    <figure className="mt-10"><img src="/images/passengers-fail-safe.svg" alt="Ilustrasi orisinal kapal antarbintang dengan sistem otomatisasi, pemantauan, fail-safe, dan kendali manusia" className="w-full rounded-2xl" width="1600" height="900" /><figcaption className="mt-3 text-sm text-muted">Ilustrasi orisinal untuk refleksi rekayasa keselamatan; bukan cuplikan film Passengers.</figcaption></figure>
     <div className="mt-12 space-y-6 text-lg leading-8 text-ink">
       <p>Setelah menonton <em>Passengers</em>, saya melihat lebih dari kisah dua manusia yang terbangun terlalu dini dalam perjalanan antarbintang. Sebagai peneliti sistem kontrol, otomatisasi, dan kecerdasan buatan untuk pertanian cerdas, saya justru bertanya: apa yang terjadi ketika sistem yang dirancang bekerja tanpa manusia tiba-tiba membutuhkan manusia pada saat paling kritis?</p>
       {sections.map(section => <section key={section.heading} className="pt-6"><h2 className="font-display mb-5 text-3xl text-forest-deep md:text-4xl">{section.heading}</h2><div className="space-y-5">{section.paragraphs.map((p,i)=><p key={i}>{p}</p>)}</div></section>)}

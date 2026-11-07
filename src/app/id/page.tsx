@@ -1,4 +1,5 @@
 import { LatestArticles } from "@/components/LatestArticles";
+import { ContentPillars } from "@/components/ContentPillars";
 import { ClimateMetrics } from "@/components/ClimateMetrics";
 import { AcademicOverview } from "@/components/AcademicOverview";
 import type { Metadata } from "next";
@@ -24,6 +25,7 @@ export default function Home() {
       <Header locale="id" />
       <main id="main">
         <Hero locale="id" />
+        <ContentPillars locale="id" />
         <LatestArticles locale="id" />
         <ClimateMetrics locale="id" />
         <ResearchStories locale="id" />

@@ -3,6 +3,7 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 
 const articles = [
+  { category: "Film · Otomatisasi · Smart farming", metric: "Fail-safe", metricNote: "pelajaran dari kapal Avalon untuk sistem kontrol dan AI yang tangguh.", date: "7 November 2026", title: "Passengers: Ketika Otomatisasi Gagal, Siapa yang Mengambil Kendali?", summary: "Refleksi film Passengers tentang kegagalan berantai, fail-safe, safe reinforcement learning, kualitas data sensor, dan etika teknologi.", href: "/id/artikel/passengers-otomatisasi-fail-safe/" },
   { category: "Jaringan komputer · Cisco Packet Tracer", metric: "3 konsep", metricNote: "VLAN, VTP, dan routing antar-VLAN dalam satu topologi.", date: "20 Oktober 2026", title: "Memahami VLAN, VTP, dan Inter-VLAN Routing melalui Cisco Packet Tracer", summary: "Penjelasan konsep, konfigurasi CLI tiga switch dan satu router, serta pengujian konektivitas untuk mahasiswa Teknik Elektro.", href: "/id/artikel/vtp-vlan-inter-vlan-routing/" },
 
   {category: "Layanan & Pelatihan", metric: "IoT", metricNote: "review sistem dan workshop praktik.", date: "17 Oktober 2026", title: "Review monitoring IoT dan workshop From ESP32 to Grafana", summary: "Cakupan jelas, harga awal, dan pengalaman narasumber terdokumentasi.", href: "/id/layanan/"},

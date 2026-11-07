@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const latest = [
+  { date: "7 November 2026", iso: "2026-11-07", category: "Keamanan Siber · Forensik", title: "Lawful Interception Management System (LIMS): Arsitektur, Kontrol Keamanan, dan Audit Forensik", description: "Mengenal arsitektur ETSI, kontrol akses, insider threat, dan audit digital berbasis panduan NIST.", href: "/id/artikel/lawful-interception-lims-keamanan-siber/" },
   { date: "7 November 2026", iso: "2026-11-07", category: "AI · Keselamatan sistem", title: "Passengers: Ketika Otomatisasi Gagal, Siapa yang Mengambil Kendali?", description: "Dari kapal antarbintang ke pertanian vertikal: fault detection, fail-safe, dan tanggung jawab manusia dalam sistem otomatis.", href: "/id/artikel/passengers-otomatisasi-fail-safe/" },
   { date: "28 Oktober 2026", iso: "2026-10-28", category: "Refleksi · Penelitian", title: "Bangkit Penelitian Indonesia: Semangat Sumpah Pemuda", description: "Refleksi tentang pemuda, integritas akademik, kemandirian ilmu pengetahuan, dan inovasi yang berdampak.", href: "/articles/bangkit-penelitian-indonesia-sumpah-pemuda-2026/" },
   { date: "20 Oktober 2026", iso: "2026-10-20", category: "Jaringan komputer · Tutorial", title: "Memahami VLAN, VTP, dan Inter-VLAN Routing melalui Cisco Packet Tracer", description: "Konsep, konfigurasi tiga switch dan satu router, serta pengujian konektivitas jaringan.", href: "/id/artikel/vtp-vlan-inter-vlan-routing/" },

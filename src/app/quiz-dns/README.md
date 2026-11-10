@@ -1,13 +1,8 @@
-# DNS & Internetworking Quiz
-60 questions, 30-minute limit, server-side answer key and token verification.
+# Kuis DNS dan Internetworking
+60 soal, 30 menit. Mahasiswa memasukkan nama, NIM, dan token sebelum memulai. Setelah submit, halaman hasil menampilkan identitas, nilai, jumlah benar, dan waktu WIB untuk screenshot dan pengiriman manual ke WhatsApp Group.
 
-Configure environment variables in the deployment:
-- DNS_QUIZ_TOKEN (instructor-selected exact token; do not commit to GitHub)
-- DNS_QUIZ_SESSION_SECRET (random long signing secret)
+Konfigurasi server (jangan commit nilainya):
+- DNS_QUIZ_TOKEN: token ujian yang ditentukan dosen
+- DNS_QUIZ_SESSION_SECRET: string acak panjang untuk tanda tangan sesi
 
-Important limitations before releasing to students:
-1. The current API calculates grades but DOES NOT PERSIST submissions. Connect Cloudflare D1 and store name, NIM, answers, grade, submitted_at before enabling a real graded examination.
-2. Cloudflare Pages Next.js deployment must support Node.js route handlers or be adapted to Cloudflare Workers-compatible runtime. Verify the build and API on the actual Cloudflare deployment.
-3. Add server-side one-time submission and enforce expiry against signed session; client timer alone is insufficient.
-4. Shuffle options server-side while preserving answer mapping if anti-collusion is required.
-Do not distribute the link as an official exam until these requirements are implemented and tested.
+Tidak menggunakan database; tidak ada penyimpanan jawaban/nilai di server. Screenshot dapat dimanipulasi dan mahasiswa dapat mengulang. Sesi hanya diverifikasi menggunakan cookie bertanda tangan dan batas waktu; tanpa penyimpanan state server tidak ada jaminan satu kali pengerjaan. Kunci jawaban hanya di server. Deployment Next.js ke Cloudflare memerlukan runtime yang mendukung route handler Node.js dan environment secrets. Uji API, token, timer, dan hasil pada deployment sebelum membagikan link.

@@ -6,15 +6,15 @@ export const runtime = "nodejs";
 const TOKEN = process.env.DNS_QUIZ_TOKEN;
 const SECRET = process.env.DNS_QUIZ_SESSION_SECRET;
 const sign = (value: string) => createHmac("sha256", SECRET!).update(value).digest("hex");
-function authorized(req: NextRequest) {
-  if (!SECRET) return false;
+function authorized(req: NextRequest): {name:string,nim:string,exp:number}|null {
+  if (!SECRET) return null;
   const raw = req.cookies.get("dns_quiz_session")?.value || "";
   const idx = raw.lastIndexOf(".");
-  if (idx < 0) return false;
+  if (idx < 0) return null;
   const data = raw.slice(0,idx), mac = raw.slice(idx+1);
   const expected = sign(data);
-  if (!/^[a-f0-9]{64}$/.test(mac) || !timingSafeEqual(Buffer.from(mac),Buffer.from(expected))) return false;
-  try { const session = JSON.parse(Buffer.from(data,"base64url").toString()); return typeof session.exp === "number" && Date.now() < session.exp && typeof session.nim === "string"; } catch {return false;}
+  if (!/^[a-f0-9]{64}$/.test(mac) || !timingSafeEqual(Buffer.from(mac),Buffer.from(expected))) return null;
+  try { const session = JSON.parse(Buffer.from(data,"base64url").toString()); return typeof session.exp === "number" && Date.now() < session.exp + 15000 && typeof session.nim === "string" && typeof session.name === "string" ? session : null; } catch {return null;}
 }
 export async function POST(req: NextRequest) {
   if (!TOKEN || !SECRET) return NextResponse.json({error:"Konfigurasi token/session server belum tersedia."},{status:503});
@@ -28,11 +28,11 @@ export async function POST(req: NextRequest) {
     const session={name,nim,exp:Date.now()+30*60*1000};
     const data=Buffer.from(JSON.stringify(session)).toString("base64url");
     const res=NextResponse.json({questions:QUESTIONS.map(q=>({id:q.id,type:q.type,question:q.question,...("options" in q?{options:q.options}:{})})),expiresAt:session.exp});
-    res.cookies.set("dns_quiz_session",data+"."+sign(data),{httpOnly:true,secure:process.env.NODE_ENV==="production",sameSite:"strict",path:"/api/quiz-dns",maxAge:1800});
+    res.cookies.set("dns_quiz_session",data+"."+sign(data),{httpOnly:true,secure:process.env.NODE_ENV==="production",sameSite:"strict",path:"/api/quiz-dns",maxAge:1815});
     return res;
   }
   if (body.action==="submit") {
-    if (!authorized(req)) return NextResponse.json({error:"Sesi ujian kedaluwarsa atau tidak valid."},{status:403});
+    const session=authorized(req); if (!session) return NextResponse.json({error:"Sesi ujian kedaluwarsa atau tidak valid."},{status:403});
     const answers=body.answers||{};
     let correct=0;
     for(const q of QUESTIONS) {
@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
       else if (given===q.answer) correct++;
     }
     // IMPORTANT: no durable persistence until D1 binding/database is configured.
-    const res=NextResponse.json({score:Math.round(correct/QUESTIONS.length*10000)/100,correct,total:QUESTIONS.length,persisted:false});
+    const res=NextResponse.json({name:session.name,nim:session.nim,submittedAt:new Date().toISOString(),score:Math.round(correct/QUESTIONS.length*10000)/100,correct,total:QUESTIONS.length,persisted:false});
     res.cookies.delete("dns_quiz_session");
     return res;
   }

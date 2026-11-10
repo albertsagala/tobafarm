@@ -1,5 +1,4 @@
-// Server-only question bank. Never import into a client component.
-import "server-only";
+// Static-site question bank. Answers are present in browser bundle; not tamper-proof.
 export const QUESTIONS = [
   {
     "id": 1,

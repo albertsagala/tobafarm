@@ -1,5 +1,6 @@
 "use client";
 import { useState,useEffect } from "react";
+import { QUESTIONS } from "./questions";
 type Question={id:number,type:"mc"|"tf",question:string,options?:readonly string[]};
 export default function QuizDNS(){
  const [receipt,setReceipt]=useState<{name:string,nim:string,submittedAt:string,score:number,correct:number,total:number}|null>(null); const [name,setName]=useState(""),[nim,setNim]=useState("");
@@ -7,8 +8,8 @@ export default function QuizDNS(){
  const [expiresAt,setExpiresAt]=useState(0),[now,setNow]=useState(Date.now()),[busy,setBusy]=useState(false),[error,setError]=useState(""),[result,setResult]=useState<string|null>(null);
  useEffect(()=>{if(!expiresAt||result)return;const t=setInterval(()=>setNow(Date.now()),1000);return()=>clearInterval(t)},[expiresAt,result]);
  const remaining=Math.max(0,Math.ceil((expiresAt-now)/1000));
- async function start(e:React.FormEvent){e.preventDefault();setBusy(true);setError("");try{const r=await fetch("/api/quiz-dns",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"start",name,nim})});const d=await r.json();if(!r.ok)throw Error(d.error);setQuestions(d.questions);setExpiresAt(d.expiresAt);setNow(Date.now());}catch(e){setError(e instanceof Error?e.message:"Gagal memulai")}finally{setBusy(false)}}
- async function submit(){if(busy||result)return;setBusy(true);setError("");try{const r=await fetch("/api/quiz-dns",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"submit",name,nim,answers})});const d=await r.json();if(!r.ok)throw Error(d.error);setReceipt(d);setResult("Selesai");}catch(e){setError(e instanceof Error?e.message:"Gagal mengirim")}finally{setBusy(false)}}
+ function start(e:React.FormEvent){e.preventDefault();setError("");if(name.trim().length<3||nim.trim().length<3){setError("Nama lengkap dan NIM wajib diisi.");return;}setQuestions(QUESTIONS.map(q=>({id:q.id,type:q.type,question:q.question,...("options" in q?{options:q.options}:{})})));setExpiresAt(Date.now()+30*60*1000);setNow(Date.now());}
+ function submit(){if(busy||result)return;let correct=0;for(const q of QUESTIONS){if(answers[q.id]===q.answer)correct++;}setReceipt({name:name.trim(),nim:nim.trim(),submittedAt:new Date().toISOString(),score:Math.round(correct/QUESTIONS.length*10000)/100,correct,total:QUESTIONS.length});setResult("Selesai");}
  useEffect(()=>{if(expiresAt && remaining===0 && !result && !busy)void submit()},[remaining,expiresAt,result,busy]);
  return <main className="mx-auto max-w-3xl p-6 space-y-6"><h1 className="text-3xl font-bold">Kuis DNS & Internetworking</h1><p>60 soal · 30 menit · 50 pilihan ganda dan 10 benar/salah.</p>
  {error&&<p role="alert" className="text-red-600">{error}</p>}

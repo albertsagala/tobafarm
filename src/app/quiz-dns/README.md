@@ -1,8 +1,4 @@
-# Kuis DNS dan Internetworking
-60 soal, 30 menit. Mahasiswa memasukkan nama, NIM, dan token sebelum memulai. Setelah submit, halaman hasil menampilkan identitas, nilai, jumlah benar, dan waktu WIB untuk screenshot dan pengiriman manual ke WhatsApp Group.
+# Kuis DNS & Internetworking
+60 soal, durasi 30 menit, 50 pilihan ganda dan 10 benar/salah. Form masuk hanya Nama Lengkap dan NIM; tidak ada token dan tidak perlu environment variables. Setelah mengirim, halaman hasil menampilkan nama, NIM, nilai, jumlah benar, dan waktu WIB untuk screenshot dan pengiriman ke WhatsApp Group.
 
-Konfigurasi server (jangan commit nilainya):
-- DNS_QUIZ_TOKEN: token ujian yang ditentukan dosen
-- DNS_QUIZ_SESSION_SECRET: string acak panjang untuk tanda tangan sesi
-
-Tidak menggunakan database; tidak ada penyimpanan jawaban/nilai di server. Screenshot dapat dimanipulasi dan mahasiswa dapat mengulang. Sesi hanya diverifikasi menggunakan cookie bertanda tangan dan batas waktu; tanpa penyimpanan state server tidak ada jaminan satu kali pengerjaan. Kunci jawaban hanya di server. Deployment Next.js ke Cloudflare memerlukan runtime yang mendukung route handler Node.js dan environment secrets. Uji API, token, timer, dan hasil pada deployment sebelum membagikan link.
+Tidak ada database, sehingga nilai dan jawaban tidak disimpan. Waktu 30 menit berjalan pada browser mahasiswa; tidak ada enforcement waktu atau batas percobaan dari server. Ini sesuai mekanisme berbasis kepercayaan, bukan ujian dengan kontrol keamanan ketat. Route API memerlukan dukungan runtime Next.js server pada deployment Cloudflare. Uji form, API start, submit, dan tampilan hasil setelah deployment.

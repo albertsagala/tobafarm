@@ -1,0 +1,17 @@
+"use client";
+import { useState,useEffect } from "react";
+type Question={id:number,type:"mc"|"tf",question:string,options?:readonly string[]};
+export default function QuizDNS(){
+ const [name,setName]=useState(""),[nim,setNim]=useState(""),[token,setToken]=useState("");
+ const [questions,setQuestions]=useState<Question[]>([]),[answers,setAnswers]=useState<Record<number,number|boolean>>({});
+ const [expiresAt,setExpiresAt]=useState(0),[now,setNow]=useState(Date.now()),[busy,setBusy]=useState(false),[error,setError]=useState(""),[result,setResult]=useState<string|null>(null);
+ useEffect(()=>{if(!expiresAt||result)return;const t=setInterval(()=>setNow(Date.now()),1000);return()=>clearInterval(t)},[expiresAt,result]);
+ const remaining=Math.max(0,Math.ceil((expiresAt-now)/1000));
+ async function start(e:React.FormEvent){e.preventDefault();setBusy(true);setError("");try{const r=await fetch("/api/quiz-dns",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"start",name,nim,token})});const d=await r.json();if(!r.ok)throw Error(d.error);setQuestions(d.questions);setExpiresAt(d.expiresAt);setNow(Date.now());setToken("");}catch(e){setError(e instanceof Error?e.message:"Gagal memulai")}finally{setBusy(false)}}
+ async function submit(){if(busy||result)return;setBusy(true);setError("");try{const r=await fetch("/api/quiz-dns",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"submit",answers})});const d=await r.json();if(!r.ok)throw Error(d.error);setResult("Nilai: "+d.score+" / 100 ("+d.correct+" dari "+d.total+" benar).");}catch(e){setError(e instanceof Error?e.message:"Gagal mengirim")}finally{setBusy(false)}}
+ useEffect(()=>{if(expiresAt && remaining===0 && !result && !busy)void submit()},[remaining,expiresAt,result,busy]);
+ return <main className="mx-auto max-w-3xl p-6 space-y-6"><h1 className="text-3xl font-bold">Kuis DNS & Internetworking</h1><p>60 soal · 30 menit · 50 pilihan ganda dan 10 benar/salah.</p>
+ {error&&<p role="alert" className="text-red-600">{error}</p>}
+ {!expiresAt?<form onSubmit={start} className="grid gap-3"><label>Nama lengkap<input className="block w-full border p-2 text-black" required minLength={3} value={name} onChange={e=>setName(e.target.value)}/></label><label>NIM<input className="block w-full border p-2 text-black" required minLength={3} value={nim} onChange={e=>setNim(e.target.value)}/></label><label>Token akses<input className="block w-full border p-2 text-black" type="password" required value={token} onChange={e=>setToken(e.target.value)}/></label><button className="rounded bg-blue-700 text-white p-3" disabled={busy}>Mulai ujian</button></form>:<><p className="sticky top-0 bg-white text-black p-3 font-bold">Sisa waktu: {Math.floor(remaining/60)}:{String(remaining%60).padStart(2,"0")}</p>{result?<p className="font-bold">{result}</p>:<><div className="space-y-5">{questions.map(q=><fieldset key={q.id} className="border rounded p-4"><legend className="font-semibold">{q.id}. {q.question}</legend>{(q.type==="tf"?["Benar","Salah"]:q.options||[]).map((option,i)=><label key={i} className="block py-1"><input type="radio" name={"q"+q.id} checked={answers[q.id]===(q.type==="tf"?i===0:i)} onChange={()=>setAnswers(old=>({...old,[q.id]:q.type==="tf"?i===0:i}))}/> {q.type==="mc"?String.fromCharCode(65+i)+". ":""}{option}</label>)}</fieldset>)}</div><button onClick={()=>void submit()} disabled={busy} className="rounded bg-blue-700 text-white p-3">Kirim jawaban</button></>}</>}
+ </main>;
+}

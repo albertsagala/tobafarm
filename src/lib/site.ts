@@ -17,6 +17,7 @@ export const navEn = [
   { href: "/#articles", label: "Insights" },
   { href: "/#projects", label: "Research Areas" },
   { href: "/#resources", label: "Resources" },
+  { href: "/research-funding/", label: "Grants" },
   { href: "/services/", label: "Services & Training" },
 ] as const;
 
@@ -27,6 +28,7 @@ export const navId = [
   { href: "/id/#articles", label: "Artikel" },
   { href: "/id/#projects", label: "Bidang Riset" },
   { href: "/id/#resources", label: "Sumber Belajar" },
+  { href: "/research-funding/", label: "Hibah Riset" },
   { href: "/id/layanan/", label: "Layanan & Pelatihan" },
 ] as const;
 
